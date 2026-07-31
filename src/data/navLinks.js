@@ -1,39 +1,44 @@
 const navLinks = [
-  {
-    href: "#menu",
-    label: {
-      es: "Menú",
-      en: "Menu",
+    {
+        type: "scroll",
+        href: "#productos",
+        label: {
+            es: "Productos",
+            en: "Products",
+        },
     },
-  },
-  {
-    href: "#experiencias",
-    label: {
-      es: "Experiencias",
-      en: "Experiences",
+    {
+        type: "route",
+        href: "/experiencias",
+        label: {
+            es: "Experiencias",
+            en: "Experiences",
+        },
     },
-  },
-  {
-    href: "#galeria",
-    label: {
-      es: "Galería",
-      en: "Gallery",
+    {
+        type: "scroll",
+        href: "#galeria",
+        label: {
+            es: "Galería",
+            en: "Gallery",
+        },
     },
-  },
-  {
-    href: "#ubicacion",
-    label: {
-      es: "Ubicación",
-      en: "Location",
+    {
+        type: "scroll",
+        href: "#ubicacion",
+        label: {
+            es: "Ubicación",
+            en: "Location",
+        },
     },
-  },
-  {
-    href: "#contacto",
-    label: {
-      es: "Contacto",
-      en: "Contact",
+    {
+        type: "scroll",
+        href: "#contacto",
+        label: {
+            es: "Contacto",
+            en: "Contact",
+        },
     },
-  },
 ];
 
 export default navLinks;

@@ -32,3 +32,12 @@
   background: var(--color-primary);
   color: white;
 }
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.whatsapp:hover {
+    background: #1EBE5A;
+}

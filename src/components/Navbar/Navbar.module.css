@@ -93,6 +93,7 @@
 .actions {
   display: flex;
   align-items: center;
+  gap: 16px;
 }
 
 .scrolled {
@@ -119,8 +120,50 @@
   background: rgba(255, 255, 255, 0.15);
 }
 
-@media (min-width: 768px) {
+
+.menuButton {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+
+  background: transparent;
+  color: var(--color-surface);
+
+  cursor: pointer;
+
+  font-size: 1.35rem;
+  font-weight: 600;
+
+  transition: var(--transition-default);
+}
+
+.menuButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width:768px) {
+
+  .menuButton {
+    display: flex;
+  }
+
+}
+
+@media (min-width: 769px) {
+
   .navigation {
     display: block;
   }
+
+  .menuButton {
+    display: none;
+  }
+
 }

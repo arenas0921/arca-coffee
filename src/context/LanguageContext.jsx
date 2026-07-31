@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import translations from "../locales/translations";
 
 const LanguageContext = createContext();
 
@@ -22,6 +23,7 @@ function LanguageProvider({ children }) {
             value={{
                 language,
                 toggleLanguage,
+                translations: translations[language],
             }}
         >
             {children}

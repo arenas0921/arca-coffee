@@ -1,0 +1,64 @@
+.carousel {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    cursor: grab;
+    user-select: none;
+
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+}
+
+.carousel:active {
+    cursor: grabbing;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 46px;
+    height: 46px;
+
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 1.4rem;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow: var(--shadow-sm);
+
+    z-index: 10;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.arrow:hover {
+    transform: translateY(-50%) scale(1.08);
+}
+
+.arrowLeft {
+    left: 12px;
+}
+
+.arrowRight {
+    right: 12px;
+}

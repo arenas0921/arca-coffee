@@ -20,6 +20,21 @@ function About() {
                     {translations.about.title}
                 </h2>
 
+                <p className={styles.intro}>
+                    {translations.about.intro.before}
+
+                    <span className={styles.highlight}>
+                        {translations.about.intro.highlight1}
+                    </span>
+
+                    {translations.about.intro.middle}
+
+                    <span className={styles.highlight}>
+                        {translations.about.intro.highlight2}
+                    </span>
+
+                    {translations.about.intro.after}
+                </p>
                 <div className={styles.text}>
                     {translations.about.description.map((paragraph, index) => (
                         <p key={index}>

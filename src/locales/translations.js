@@ -15,6 +15,13 @@ const translations = {
         about: {
             eyebrow: "POR QUÉ ARCA",
             title: "Un arca guarda. Un arca también recibe.",
+            intro: {
+                before: "Un arca es dos cosas al mismo tiempo: un ",
+                highlight1: "refugio en lo alto",
+                middle: " al que llegan los pájaros, y un ",
+                highlight2: "cofre donde se guarda lo que vale la pena",
+                after: ". Arca Coffee es exactamente las dos. Un mirador sobre el valle de Salento y una barra que custodia cinco orígenes de café colombiano."
+            },
             description: [
                 {
                     text: "Nos gustó la palabra porque significa las dos cosas."
@@ -51,6 +58,14 @@ const translations = {
             eyebrow: "WHY ARCA",
 
             title: "An ark preserves. An ark also welcomes.",
+
+            intro: {
+                before: "An ark is two things at the same time: a ",
+                highlight1: "refuge high above",
+                middle: " where birds arrive, and a ",
+                highlight2: "chest where what is worth preserving is kept",
+                after: ". Arca Coffee is exactly both. A viewpoint overlooking the Salento valley and a coffee bar that safeguards five Colombian coffee origins."
+            },
 
             description: [
                 {

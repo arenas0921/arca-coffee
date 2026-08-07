@@ -26,11 +26,21 @@
 }
 
 .title {
-
     font-family: var(--font-heading);
     color: var(--color-text);
     font-size: clamp(2rem, 6vw, 3rem);
     margin-bottom: 1rem;
+}
+
+.intro {
+    max-width: 720px;
+
+    margin-bottom: 1rem;
+
+    font-size: 1.1rem;
+    line-height: 1.9;
+
+    color: var(--color-text-light);
 }
 
 .text {
@@ -100,7 +110,8 @@
 
     cursor: pointer;
 
-    transition: transform .35s ease,
+    transition:
+        transform .35s ease,
         box-shadow .35s ease;
 }
 
@@ -130,6 +141,7 @@
         grid-template-areas:
             "eyebrow image"
             "title image"
+            "intro image"
             "text image"
             "quote image";
 
@@ -137,12 +149,16 @@
         column-gap: 4rem;
     }
 
+    .eyebrow {
+        grid-area: eyebrow;
+    }
+
     .title {
         grid-area: title;
     }
 
-    .eyebrow {
-        grid-area: eyebrow;
+    .intro {
+        grid-area: intro;
     }
 
     .text {

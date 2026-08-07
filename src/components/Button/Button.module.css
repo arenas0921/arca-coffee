@@ -10,6 +10,10 @@
   font-size: 1rem;
   font-weight: 600;
 
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
   transition: var(--transition-default);
 }
 
@@ -34,10 +38,10 @@
 }
 
 .whatsapp {
-    background: #25D366;
-    color: white;
+  background: #25D366;
+  color: white;
 }
 
 .whatsapp:hover {
-    background: #1EBE5A;
+  background: #1EBE5A;
 }

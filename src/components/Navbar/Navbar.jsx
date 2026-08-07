@@ -2,7 +2,7 @@ import { Container } from "..";
 import navLinks from "../../data/navLinks";
 
 import styles from "./Navbar.module.css";
-import logo from "../../assets/logo/logo.jpg";
+import logo from "../../assets/logo/logo2.png";
 import useScroll from "../../hooks/useScroll";
 import { useLanguage } from "../../context/LanguageContext";
 import { Link } from "react-router-dom";

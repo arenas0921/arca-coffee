@@ -8,7 +8,7 @@ import Carousel from "../../components/Carousel";
 function FeaturedProducts() {
     const { language } = useLanguage();
     return (
-        <section className={styles.section}>
+        <section id="productos" className={styles.section}>
             <h2 className={styles.title}>
                 {language === "es" ? "Productos Destacados" : "Featured Products"}
             </h2>

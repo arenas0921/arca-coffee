@@ -13,10 +13,24 @@ const translations = {
             discover: "Descubrir",
         },
         about: {
-            title: "Sobre Arca Coffee",
-            description:
-                "En Arca Coffee creemos que una buena taza de café comienza con el cuidado de cada cultivo. Trabajamos con dedicación para ofrecer café de origen, resaltando los sabores y aromas que hacen única nuestra tierra. Queremos compartir una experiencia auténtica que conecte a cada persona con la pasión y el esfuerzo que hay detrás de cada grano.",
-            button: "Conocer más",
+            eyebrow: "POR QUÉ ARCA",
+            title: "Un arca guarda. Un arca también recibe.",
+            description: [
+                {
+                    text: "Nos gustó la palabra porque significa las dos cosas."
+                },
+
+                {
+                    highlight: "Un arca es un cofre.",
+                    text: "Ahí adentro va lo que no se puede perder. En el nuestro caben cinco montañas colombianas, unas frutas que casi nadie conoce y las recetas que inventamos en esta barra."
+                },
+
+                {
+                    highlight: "Un arca es un refugio en lo alto.",
+                    text: "Al que llegan los pájaros. Eso es exactamente lo que pasa aquí todas las mañanas."
+                }
+            ],
+            quote: "Lo que se guarda bien, se comparte mejor."
         },
     },
 
@@ -34,10 +48,27 @@ const translations = {
             discover: "Discover",
         },
         about: {
-            title: "About Arca Coffee",
-            description:
-                "At Arca Coffee, we believe that a great cup of coffee begins with the care given to every crop. We work with dedication to produce specialty coffee that highlights the unique flavors and aromas of our land. Our goal is to share an authentic experience that connects every person with the passion and effort behind every bean.",
-            button: "Learn more",
+            eyebrow: "WHY ARCA",
+
+            title: "An ark preserves. An ark also welcomes.",
+
+            description: [
+                {
+                    text: "We liked the word because it means both things."
+                },
+
+                {
+                    highlight: "An ark is a chest.",
+                    text: "It holds what should never be lost."
+                },
+
+                {
+                    highlight: "An ark is also a refuge.",
+                    text: "A place where people and nature meet."
+                }
+            ],
+
+            quote: "What is well preserved is worth sharing."
         },
     },
 };

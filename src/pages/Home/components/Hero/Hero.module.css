@@ -1,5 +1,5 @@
 .hero {
-  min-height: 100vh;
+  min-height: 112vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -11,11 +11,9 @@
   display: flex;
   align-items: center;
 
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.65),
-    rgba(0, 0, 0, 0.35)
-  );
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.35));
 }
 
 .content {
@@ -26,22 +24,39 @@
   gap: var(--spacing-lg);
 
   color: var(--color-surface);
+  padding-top: 2rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 4rem;
+  margin-bottom: .75rem;
 }
 
 .tag {
+
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+
   width: fit-content;
 
-  padding: 6px 14px;
+  padding: .55rem .95rem;
 
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, .35);
   border-radius: 999px;
 
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, .12);
   backdrop-filter: blur(8px);
 
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: white;
+
+  font-size: .85rem;
+  font-weight: 500;
+
+  white-space: nowrap;
 }
 
 .content h1 {
@@ -65,9 +80,36 @@
   margin-top: var(--spacing-md);
 }
 
+.footerInfo {
+  margin-top: 1.2rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+
+  color: rgba(255, 255, 255, .68);
+
+  font-size: .9rem;
+}
+
+.footerInfo span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.footerInfo span svg {
+  flex-shrink: 0;
+}
+
+
+
 @media (max-width: 768px) {
   .overlay {
-    padding: var(--spacing-3xl) 0;
+    min-height: auto;
+    padding: 5rem 0;
   }
 
   .content h1 {
@@ -78,6 +120,10 @@
     font-size: 1rem;
   }
 
+  .content {
+    padding-top: 0;
+  }
+
   .actions {
     flex-direction: column;
     align-items: stretch;
@@ -86,4 +132,25 @@
   .actions button {
     width: 100%;
   }
+
+  .chips {
+    gap: .45rem;
+    margin-top: .5rem;
+  }
+
+  .tag {
+    padding: .45rem .75rem;
+
+    font-size: .78rem;
+  }
+
+
+  .footerInfo {
+    gap: .8rem;
+    font-size: .8rem;
+  }
+
+
+
+
 }

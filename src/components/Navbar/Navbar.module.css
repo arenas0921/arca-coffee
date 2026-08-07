@@ -37,9 +37,8 @@
 }
 
 .logo img {
-  height: 42px;
+  height: 74px;
   width: auto;
-
   display: block;
 }
 
@@ -149,6 +148,13 @@
 }
 
 @media (max-width:768px) {
+  .navbar {
+    height: 64px;
+  }
+
+  .logo img {
+    height: 52px;
+  }
 
   .menuButton {
     display: flex;

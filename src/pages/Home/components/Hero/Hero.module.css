@@ -1,12 +1,12 @@
 .hero {
-  min-height: 112vh;
+  min-height: 95vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .overlay {
-  min-height: 100vh;
+  min-height: 95vh;
 
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@
 }
 
 .content h1 {
-  font-family: var(--font-heading);
+  font-family: "Cormorant Garamond", serif;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   line-height: 1.1;
 }
@@ -152,5 +152,13 @@
 
 
 
+
+}
+
+@media (min-width: 769px) {
+
+    .content {
+        transform: translateY(-60px);
+    }
 
 }

@@ -16,6 +16,7 @@ import {
 
 function Hero() {
     const { language } = useLanguage();
+    
     return (
         <section
             className={styles.hero}
@@ -24,7 +25,7 @@ function Hero() {
             <div className={styles.overlay}>
                 <Container>
                     <div className={styles.content}>
-
+                        {/*
                         <div className={styles.chips}>
 
                             <span className={styles.tag}>
@@ -43,6 +44,7 @@ function Hero() {
                             </span>
 
                         </div>
+                        */}
                         <h1>
                             {heroData.title[language]}
                         </h1>
@@ -78,17 +80,17 @@ function Hero() {
 
                             <span>
                                 <MapPinned size={16} />
-                                Salento, Quindío
+                                {heroData.footer.location[language]}
                             </span>
 
                             <span>
                                 <Clock3 size={16} />
-                                Abierto todos los días
+                                {heroData.footer.schedule[language]}
                             </span>
 
                             <span>
                                 <Trees size={16} />
-                                A minutos del Valle de Cocora
+                                {heroData.footer.valley[language]}
                             </span>
 
                         </div>

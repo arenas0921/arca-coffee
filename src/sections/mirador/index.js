@@ -1,1 +1,1 @@
-export { default } from "./Mirador";
+export { default } from "./mirador";

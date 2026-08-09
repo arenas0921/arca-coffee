@@ -1,32 +1,36 @@
 import styles from "./ProductCard.module.css";
 
-function ProductCard({ image, title, description }) {
+function ProductCard({ image, title, subtitle, footerText }) {
     return (
         <article className={styles.card}>
-            <img
-                src={image}
-                alt={title}
-                className={styles.image}
-            />
-
             <div className={styles.content}>
                 <h3 className={styles.title}>
                     {title}
                 </h3>
 
-                <p className={styles.description}>
-                    {description}
-                </p>
+                {subtitle && (
+                    <>
+                        <span className={styles.divider}></span>
 
-                <button className={styles.link}>
-                    <span className={styles.linkText}>
-                        Descubrir
-                    </span>
+                        <p className={styles.subtitle}>
+                            {subtitle}
+                        </p>
+                    </>
+                )}
+            </div>
 
-                    <span className={styles.arrow}>
-                        →
-                    </span>
-                </button>
+            <img
+                className={styles.image}
+                src={image}
+                alt={title}
+            />
+
+            <div className={styles.footer}>
+                {footerText && (
+                    <p className={styles.footerText}>
+                        {footerText}
+                    </p>
+                )}
             </div>
         </article>
     );

@@ -1,10 +1,17 @@
 .section {
     scroll-margin-top: 50px;
+
+    width: 100%;
+
+    padding: var(--spacing-3xl) var(--spacing-lg);
+
+    background: #F7F1E8;
+}
+
+.content {
     max-width: var(--container-max-width);
 
     margin: 0 auto;
-
-    padding: var(--spacing-3xl) var(--spacing-lg);
 }
 
 .title {
@@ -21,16 +28,20 @@
 
 .grid {
     display: flex;
+
     gap: 1.5rem;
 }
 
-.grid > *{
-    flex:0 0 88%;
-    max-width:320px;
+.grid > * {
+    flex: 0 0 88%;
+
+    max-width: 320px;
 }
 
-@media (min-width:768px){
-    .grid > *{
-        flex:0 0 320px;
+@media (min-width: 768px) {
+
+    .grid > * {
+        flex: 0 0 320px;
     }
+
 }

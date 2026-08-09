@@ -16,6 +16,9 @@ const miradorData = {
         mirador2,
         mirador3,
     ],
+
+    closingQuote:
+        "Ven temprano por el paisaje. Quédate por el atardecer.",
 };
 
 export default miradorData;

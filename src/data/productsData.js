@@ -1,20 +1,21 @@
-import p1 from "../assets/images/products/p1.jpg";
+import p1 from "../assets/images/origenes/col.png";
 import p2 from "../assets/images/products/p2.jpg";
 import p3 from "../assets/images/products/p3.jpg";
 import p4 from "../assets/images/products/p4.jpg";
+import p10 from "../assets/images/products/p10.jpg";
 
 const productsData = [
     {
         id: 1,
 
         title: {
-            es: "Aeropress Signature",
-            en: "Aeropress Signature",
+            es: "Los Orígenes",
+            en: "The Origins",
         },
 
-        description: {
-            es: "Preparación artesanal con notas dulces y un perfil limpio que resalta el origen del café.",
-            en: "Artisanal preparation with sweet notes and a clean profile that highlights the coffee's origin.",
+        subtitle: {
+            es: "Cinco montañas. Cinco sabores. Un solo país.",
+            en: "Five mountains. Five flavors. One country.",
         },
 
         image: p1,
@@ -26,13 +27,13 @@ const productsData = [
         id: 2,
 
         title: {
-            es: "Cold Brew Rosemary",
-            en: "Cold Brew Rosemary",
+            es: "Calibrar el Espresso",
+            en: "Dialing In Espresso",
         },
 
-        description: {
-            es: "Cold brew refrescante con notas herbales y un toque cítrico.",
-            en: "Refreshing cold brew with herbal notes and a citrus touch.",
+        subtitle: {
+            es: "La base de nuestras bebidas.",
+            en: "The base of our drinks.",
         },
 
         image: p2,
@@ -44,34 +45,50 @@ const productsData = [
         id: 3,
 
         title: {
-            es: "Cat Latte",
-            en: "Cat Latte",
+            es: "Métodos",
+            en: "Methods",
         },
 
-        description: {
-            es: "Espresso con leche texturizada y latte art preparado al momento.",
-            en: "Espresso with silky milk and freshly crafted latte art.",
+        subtitle: {
+            es: "Según cómo se prepare un café, no sabe igual.",
+            en: "Coffee tastes different depending on how it is prepared.",
         },
 
         image: p3,
 
         featured: true,
     },
-
     {
         id: 4,
 
         title: {
-            es: "Berry Spark",
-            en: "Berry Spark",
+            es: "Bebidas de autor",
+            en: "Signature Drinks",
         },
 
-        description: {
-            es: "Bebida artesanal con frutos rojos y un acabado refrescante.",
-            en: "Handcrafted sparkling berry drink with a refreshing finish.",
+        subtitle: {
+            es: "Estas recetas no existen en ningún otro lado. Nacieron en esta barra.",
+            en: "These recipes exist nowhere else. They were born behind this bar.",
         },
 
         image: p4,
+
+        featured: true,
+    },
+    {
+        id: 5,
+
+        title: {
+            es: "Coctelería",
+            en: "Cocktails",
+        },
+
+        subtitle: {
+            es: "Es una combinación que no vas a encontrar en otro lado.",
+            en: "It's a combination you won't find anywhere else.",
+        },
+
+        image: p10,
 
         featured: true,
     },

@@ -20,6 +20,7 @@
 
     letter-spacing: .18em;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .title {
@@ -30,29 +31,32 @@
     font-family: var(--font-heading);
     font-size: clamp(2.3rem, 6vw, 3.5rem);
     line-height: 1.1;
+    text-align: center;
 }
 
 .subtitle {
     max-width: 850px;
 
-    margin: 0 0 1.3rem;
+    margin: 0 auto 1.3rem;
 
     color: var(--color-text);
 
     font-family: var(--font-heading);
     font-size: clamp(1.25rem, 3vw, 1.7rem);
     line-height: 1.45;
+    text-align: center;
 }
 
 .description {
     max-width: 850px;
 
-    margin: 0;
+    margin: 0 auto;
 
     color: var(--color-text-light);
 
     font-size: 1rem;
     line-height: 1.8;
+    text-align: center;
 }
 
 /* FOTO PRINCIPAL */
@@ -97,6 +101,25 @@
     filter: brightness(.92);
 }
 
+.quote {
+    max-width: 700px;
+
+    margin: 2.2rem auto 0;
+    padding-top: 1.3rem;
+
+    border-top: 1px solid rgba(0, 0, 0, .15);
+
+    color: var(--color-text);
+
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.4;
+
+    text-align: center;
+}
+
 @media (max-width: 768px) {
 
     .section {
@@ -129,5 +152,12 @@
 
     .galleryItem img {
         height: 280px;
+    }
+
+    .quote {
+        margin-top: 1.8rem;
+        padding-top: 1.1rem;
+
+        font-size: 1.25rem;
     }
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import miradorData from "../../data/miradorData";
 import ImageModal from "../../components/ImageModal";
-import styles from "./Mirador.module.css";
+import styles from "./mirador.module.css";
 
 function Mirador() {
     const [isModalOpen, setIsModalOpen] = useState(false);

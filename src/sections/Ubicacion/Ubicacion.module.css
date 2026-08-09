@@ -1,0 +1,223 @@
+.ubicacion {
+    width: 100%;
+    padding: 2.5rem 5% 1.5rem;
+    background: #f8f4ed;
+}
+
+/* ================================
+   ENCABEZADO
+================================ */
+
+.header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 0.8rem;
+
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+
+    text-align: center;
+
+    color: var(--color-text);
+}
+
+.header h2 {
+    display: none;
+}
+
+/* Detalle dorado */
+
+.header::after {
+    content: "";
+    display: block;
+
+    width: 100px;
+    height: 1px;
+
+    margin: 1rem auto 0;
+
+    background: #c9a24a;
+}
+
+/* ================================
+   MAPA
+================================ */
+
+.mapWrapper {
+    position: relative;
+
+    width: 76%;
+    max-width: 1100px;
+    height: 480px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border: 2px solid #c9a24a;
+    border-radius: 24px;
+
+    background: #eee8dc;
+
+    box-shadow:
+        0 18px 40px rgba(42, 31, 20, 0.12),
+        0 0 0 5px rgba(201, 162, 74, 0.08);
+}
+
+.map {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+/* ================================
+   BOTÓN CÓMO LLEGAR
+================================ */
+
+.mapButton {
+    position: absolute;
+
+    right: 1.5rem;
+    bottom: 1.5rem;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    padding: 0.9rem 1.35rem;
+
+    color: #d6b15b;
+    background: #241b14;
+
+    border: 1px solid #c9a24a;
+    border-radius: 4px;
+
+    text-decoration: none;
+
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.mapButton:hover {
+    transform: translateY(-2px);
+
+    color: #ffffff;
+    background: #33261b;
+}
+
+.mapButton span {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* ================================
+   UBICACIÓN INFERIOR
+================================ */
+
+.locationLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+
+    margin-top: 1.6rem;
+
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+
+    color: var(--color-text);
+}
+
+.locationLabel span {
+    color: #c9a24a;
+    font-size: 1.2rem;
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1024px) {
+    .mapWrapper {
+        width: 84%;
+    }
+}
+
+/* ================================
+   MÓVIL
+================================ */
+
+@media (max-width: 768px) {
+    .ubicacion {
+        padding: 3.5rem 4% 1.5rem;
+    }
+
+    .header {
+        margin-bottom: 1.8rem;
+    }
+
+    .eyebrow {
+        font-size: 2.2rem;
+    }
+
+    .mapWrapper {
+        width: 100%;
+        height: 380px;
+
+        border-radius: 18px;
+    }
+
+    .mapButton {
+        right: 1rem;
+        bottom: 1rem;
+
+        padding: 0.8rem 1rem;
+
+        font-size: 0.72rem;
+    }
+
+    .locationLabel {
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+    }
+}
+
+/* ================================
+   MÓVIL PEQUEÑO
+================================ */
+
+@media (max-width: 480px) {
+    .ubicacion {
+        padding-top: 3rem;
+    }
+
+    .eyebrow {
+        font-size: 2rem;
+    }
+
+    .mapWrapper {
+        height: 330px;
+    }
+}

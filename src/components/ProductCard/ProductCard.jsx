@@ -1,8 +1,17 @@
 import styles from "./ProductCard.module.css";
 
-function ProductCard({ image, title, subtitle, footerText }) {
+function ProductCard({
+    image,
+    title,
+    subtitle,
+    footerText,
+    onClick,
+}) {
     return (
-        <article className={styles.card}>
+        <article
+            className={styles.card}
+            onClick={onClick}
+        >
             <div className={styles.content}>
                 <h3 className={styles.title}>
                     {title}

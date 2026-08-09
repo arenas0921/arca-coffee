@@ -27,6 +27,36 @@
     animation: zoomIn .25s ease;
 }
 
+/* =========================================
+   MODAL CON DESCRIPCIÓN
+   ========================================= */
+
+.modalWithDescription {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+
+    column-gap: 2.5rem;
+    row-gap: 1rem;
+
+    align-items: center;
+
+    max-width: 1100px;
+
+    padding: 2rem;
+
+    background: #2a1b12;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, .45);
+}
+
+/* =========================================
+   TÍTULO
+   ========================================= */
+
 .title {
     margin: 0 0 1rem;
 
@@ -38,12 +68,53 @@
     text-align: center;
 }
 
+/* Título cuando hay descripción */
+
+.modalWithDescription .title {
+    grid-column: 2;
+    grid-row: 1;
+
+    margin: 0;
+
+    color: #c9a24d;
+
+    text-align: left;
+
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+
+    letter-spacing: .03em;
+}
+
+.modalWithDescription .title::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 2px;
+
+    margin-top: .8rem;
+
+    background: #c9a24d;
+}
+
+/* =========================================
+   IMAGEN
+   ========================================= */
+
 .imageWrapper {
     position: relative;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 100%;
+}
+
+.modalWithDescription .imageWrapper {
+    grid-column: 1;
+    grid-row: 1 / span 2;
 
     width: 100%;
 }
@@ -61,6 +132,18 @@
     box-shadow:
         0 20px 60px rgba(0, 0, 0, .35);
 }
+
+.modalWithDescription .image {
+    width: 100%;
+    max-width: 100%;
+    max-height: 72vh;
+
+    border-radius: 12px;
+}
+
+/* =========================================
+   CIERRE
+   ========================================= */
 
 .closeButton {
     position: absolute;
@@ -82,6 +165,7 @@
     color: white;
 
     background: rgba(255, 255, 255, .18);
+
     backdrop-filter: blur(8px);
 
     transition: background .25s ease;
@@ -92,6 +176,10 @@
 .closeButton:hover {
     background: rgba(0, 0, 0, .85);
 }
+
+/* =========================================
+   FLECHAS
+   ========================================= */
 
 .arrow {
     position: absolute;
@@ -140,6 +228,10 @@
     right: 1rem;
 }
 
+/* =========================================
+   DESCRIPCIÓN
+   ========================================= */
+
 .description {
     max-width: 700px;
 
@@ -154,6 +246,26 @@
     text-align: center;
 }
 
+.modalWithDescription .description {
+    grid-column: 2;
+    grid-row: 2;
+
+    max-width: none;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, .84);
+
+    font-size: 1rem;
+    line-height: 1.7;
+
+    text-align: left;
+}
+
+/* =========================================
+   INDICADORES
+   ========================================= */
+
 .indicators {
     display: flex;
     align-items: center;
@@ -162,6 +274,13 @@
     gap: .5rem;
 
     margin-top: 1rem;
+}
+
+.modalWithDescription .indicators {
+    grid-column: 1 / -1;
+    grid-row: 3;
+
+    margin-top: .25rem;
 }
 
 .indicator,
@@ -184,7 +303,7 @@
 }
 
 .activeIndicator {
-    background: white;
+    background: #c9a24d;
 
     transform: scale(1.35);
 }
@@ -192,6 +311,10 @@
 .indicator:hover {
     background: rgba(255, 255, 255, .8);
 }
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
 
 @keyframes fadeIn {
     from {
@@ -215,6 +338,10 @@
     }
 }
 
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
 @media (max-width: 768px) {
 
     .overlay {
@@ -225,17 +352,71 @@
         width: 100%;
     }
 
-    .title {
-        margin-bottom: .8rem;
+    .modalWithDescription {
+        display: flex;
+        flex-direction: column;
 
-        font-size: 1.5rem;
+        width: 100%;
+        max-height: 92vh;
+
+        padding: 1.25rem;
+
+        gap: 1rem;
     }
 
-    .image {
+    .title,
+    .modalWithDescription .title {
+        order: 1;
+
+        width: 100%;
+
+        margin-bottom: .2rem;
+
+        font-size: 1.5rem;
+
+        text-align: center;
+    }
+
+    .modalWithDescription .title::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .imageWrapper,
+    .modalWithDescription .imageWrapper {
+        order: 2;
+    }
+
+    .image,
+    .modalWithDescription .image {
         max-width: 88vw;
-        max-height: 70vh;
+        max-height: 58vh;
 
         border-radius: 12px;
+    }
+
+    .description,
+    .modalWithDescription .description {
+        order: 3;
+
+        max-width: 90vw;
+
+        margin-top: 0;
+
+        font-size: .9rem;
+        line-height: 1.55;
+
+        text-align: left;
+
+        overflow-y: auto;
+        max-height: 25vh;
+    }
+
+    .indicators,
+    .modalWithDescription .indicators {
+        order: 4;
+
+        margin-top: .25rem;
     }
 
     .arrow {
@@ -253,18 +434,6 @@
 
     .next {
         right: .4rem;
-    }
-
-    .description {
-        max-width: 90vw;
-
-        margin-top: .8rem;
-
-        font-size: .9rem;
-    }
-
-    .indicators {
-        margin-top: .8rem;
     }
 
     .closeButton {

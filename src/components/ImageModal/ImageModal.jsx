@@ -8,9 +8,24 @@ function ImageModal({
     alt,
     title,
     description,
+    slides = [],
     onClose,
 }) {
-    const gallery = images?.length ? images : image ? [image] : [];
+    const gallery = slides.length
+        ? slides
+        : image
+            ? [
+                {
+                    image,
+                    title: title || alt || "Imagen",
+                    description,
+                },
+            ]
+            : images?.map((item, index) => ({
+                image: item,
+                title: title || alt || `Imagen ${index + 1}`,
+                description,
+            })) || [];
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [touchStart, setTouchStart] = useState(null);
@@ -55,19 +70,17 @@ function ImageModal({
 
     if (!isOpen || gallery.length === 0) return null;
 
-    const currentImage = gallery[currentIndex];
+    const currentSlide = gallery[currentIndex];
 
     const hasGallery = gallery.length > 1;
-    const hasTitle = Boolean(title);
-    const hasDescription = Boolean(description);
 
-    const nextImage = () => {
+    const nextSlide = () => {
         setCurrentIndex((prev) =>
             prev === gallery.length - 1 ? 0 : prev + 1
         );
     };
 
-    const previousImage = () => {
+    const previousSlide = () => {
         setCurrentIndex((prev) =>
             prev === 0 ? gallery.length - 1 : prev - 1
         );
@@ -91,9 +104,9 @@ function ImageModal({
         if (Math.abs(distance) < minimumSwipeDistance) return;
 
         if (distance > 0) {
-            nextImage();
+            nextSlide();
         } else {
-            previousImage();
+            previousSlide();
         }
 
         setTouchStart(null);
@@ -106,34 +119,38 @@ function ImageModal({
             onClick={onClose}
         >
             <div
-                className={styles.modal}
-                onClick={(e) => e.stopPropagation()}
+                className={`${styles.modal} ${currentSlide.description ? styles.modalWithDescription : ""
+                    }`}
+                onClick={(event) => event.stopPropagation()}
             >
                 <button
                     className={styles.closeButton}
                     onClick={onClose}
-                    aria-label="Cerrar imagen"
+                    aria-label="Cerrar"
                 >
                     ×
                 </button>
 
-                {hasTitle && (
-                    <h2 className={styles.title}>
-                        {title}
-                    </h2>
-                )}
+                <h2 className={styles.title}>
+                    {currentSlide.title}
+                </h2>
 
                 <div
                     className={styles.imageWrapper}
-                    onTouchStart={hasGallery ? handleTouchStart : undefined}
-                    onTouchMove={hasGallery ? handleTouchMove : undefined}
-                    onTouchEnd={hasGallery ? handleTouchEnd : undefined}
+                    onTouchStart={
+                        hasGallery ? handleTouchStart : undefined
+                    }
+                    onTouchMove={
+                        hasGallery ? handleTouchMove : undefined
+                    }
+                    onTouchEnd={
+                        hasGallery ? handleTouchEnd : undefined
+                    }
                 >
-
                     {hasGallery && (
                         <button
                             className={`${styles.arrow} ${styles.previous}`}
-                            onClick={previousImage}
+                            onClick={previousSlide}
                             aria-label="Imagen anterior"
                         >
                             ‹
@@ -141,41 +158,42 @@ function ImageModal({
                     )}
 
                     <img
-                        src={currentImage}
-                        alt={alt}
+                        src={currentSlide.image}
+                        alt={currentSlide.title}
                         className={styles.image}
                     />
 
                     {hasGallery && (
                         <button
                             className={`${styles.arrow} ${styles.next}`}
-                            onClick={nextImage}
+                            onClick={nextSlide}
                             aria-label="Imagen siguiente"
                         >
                             ›
                         </button>
                     )}
-
                 </div>
 
-                {hasDescription && (
+                {currentSlide.description && (
                     <p className={styles.description}>
-                        {description}
+                        {currentSlide.description}
                     </p>
                 )}
 
                 {hasGallery && (
                     <div className={styles.indicators}>
-                        {gallery.map((_, index) => (
+                        {gallery.map((slide, index) => (
                             <button
-                                key={index}
+                                key={`${slide.title}-${index}`}
                                 className={
                                     index === currentIndex
                                         ? styles.activeIndicator
                                         : styles.indicator
                                 }
-                                onClick={() => setCurrentIndex(index)}
-                                aria-label={`Ir a imagen ${index + 1}`}
+                                onClick={() =>
+                                    setCurrentIndex(index)
+                                }
+                                aria-label={`Ir a ${slide.title}`}
                             />
                         ))}
                     </div>

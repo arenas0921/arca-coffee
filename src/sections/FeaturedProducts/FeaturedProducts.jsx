@@ -17,7 +17,7 @@ function FeaturedProducts() {
 
     return (
         <>
-            <section className={styles.section}>
+            <section id="productos" className={styles.section}>
                 <div className={styles.content}>
 
                     <h2 className={styles.title}>

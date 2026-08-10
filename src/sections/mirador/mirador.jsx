@@ -13,7 +13,7 @@ function Mirador() {
     };
 
     return (
-        <section className={styles.section}>
+        <section id="mirador" className={styles.section}>
 
             <div className={styles.content}>
 

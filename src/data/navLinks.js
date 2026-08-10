@@ -1,26 +1,26 @@
 const navLinks = [
     {
         type: "scroll",
-        href: "#productos",
+        href: "#mirador",
         label: {
-            es: "Productos",
-            en: "Products",
-        },
-    },
-    {
-        type: "route",
-        href: "/experiencias",
-        label: {
-            es: "Experiencias",
-            en: "Experiences",
+            es: "Mirador",
+            en: "Viewpoint",
         },
     },
     {
         type: "scroll",
-        href: "#galeria",
+        href: "#productos",
         label: {
-            es: "Galería",
-            en: "Gallery",
+            es: "Métodos",
+            en: "Methods",
+        },
+    },
+    {
+        type: "scroll",
+        href: "#experiencias",
+        label: {
+            es: "Experiencias",
+            en: "Experiences",
         },
     },
     {
@@ -32,11 +32,11 @@ const navLinks = [
         },
     },
     {
-        type: "scroll",
-        href: "#contacto",
+        type: "whatsapp",
+        href: "https://wa.me/57XXXXXXXXXX",
         label: {
-            es: "Contacto",
-            en: "Contact",
+            es: "Reservar",
+            en: "Book",
         },
     },
 ];

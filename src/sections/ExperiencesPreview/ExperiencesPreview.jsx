@@ -6,7 +6,7 @@ import previewImage from "../../assets/images/experiences/c14.jpg";
 function ExperiencesPreview() {
     return (
         <section
-            id="experiencias-preview"
+            id="experiencias"
             className={styles.section}
         >
             <div className={styles.container}>

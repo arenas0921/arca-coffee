@@ -9,11 +9,13 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MobileMenu from "../MobileMenu";
 import { Menu } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 function Navbar() {
     const isScrolled = useScroll();
     const { language, toggleLanguage } = useLanguage();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     useEffect(() => {
         if (isMenuOpen) {
             document.body.style.overflow = "hidden";
@@ -25,6 +27,7 @@ function Navbar() {
             document.body.style.overflow = "";
         };
     }, [isMenuOpen]);
+
     return (
         <header
             className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""
@@ -40,7 +43,22 @@ function Navbar() {
                         <ul>
                             {navLinks.map((link) => (
                                 <li key={link.href}>
-                                    {link.type === "route" ? (
+                                    {link.type === "whatsapp" ? (
+                                        <a
+                                            href={link.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {link.label[language]}
+                                            <FaWhatsapp
+                                                size={18}
+                                                style={{
+                                                    marginLeft: "6px",
+                                                    flexShrink: 0,
+                                                }}
+                                            />
+                                        </a>
+                                    ) : link.type === "route" ? (
                                         <Link to={link.href}>
                                             {link.label[language]}
                                         </Link>
@@ -61,6 +79,7 @@ function Navbar() {
                         >
                             {language === "es" ? "EN" : "ES"}
                         </button>
+
                         <button
                             className={styles.menuButton}
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -71,6 +90,7 @@ function Navbar() {
                     </div>
                 </div>
             </Container>
+
             {isMenuOpen && (
                 <MobileMenu
                     onClose={() => setIsMenuOpen(false)}

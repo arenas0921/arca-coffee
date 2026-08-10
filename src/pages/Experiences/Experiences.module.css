@@ -1,105 +1,559 @@
 .page {
-    padding: 100px 20px;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+
+    padding: 100px var(--spacing-lg) 120px;
+
+    background:
+        radial-gradient(circle at 15% 20%,
+            rgba(174, 133, 86, 0.07),
+            transparent 32%),
+        radial-gradient(circle at 85% 65%,
+            rgba(174, 133, 86, 0.05),
+            transparent 30%),
+        #f7f4ee;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+
+    max-width: 760px;
+
+    margin: 0 auto 30px;
 }
 
 .title {
-    text-align: center;
+    margin: 0;
+
+    font-family: var(--font-heading);
+
+    font-size: 3rem;
+    line-height: 1.1;
+
+    color: var(--color-text);
 }
 
-.card {
+.intro {
+    max-width: 600px;
+
+    margin: 18px auto 0;
+
+    color: var(--color-text-light);
+
+    font-size: 1.1rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   EXPERIENCES
+========================= */
+
+.experiences {
     display: flex;
     flex-direction: column;
+}
 
-    margin-top: 40px;
+.experience {
+    scroll-margin-top: 100px;
+}
+
+.experience+.experience {
+    margin-top: 110px;
+
+    padding-top: 80px;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================
+   EXPERIENCE HEADER
+========================= */
+
+.experienceHeader {
+    display: flex;
+    align-items: baseline;
+
+    gap: 18px;
+
+    margin-bottom: 22px;
+}
+
+.number {
+    font-family: var(--font-heading);
+
+    font-size: 3.2rem;
+
+    line-height: 1;
+
+    color: var(--color-primary);
+
+    opacity: 0.8;
+}
+
+.experienceLabel {
+    color: var(--color-text-light);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.05fr) minmax(0, 0.95fr);
 
     overflow: hidden;
 
     border-radius: 24px;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    background: white;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.imageWrapper {
+    min-height: 560px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.imageWrapper::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.25),
+            transparent 45%);
+
+    pointer-events: none;
 }
 
 .image {
     width: 100%;
-    height: 280px;
+    height: 100%;
+
+    display: block;
 
     object-fit: cover;
 
-    display: block;
+    transition: transform 0.5s ease;
 }
+
+.card:hover .image {
+    transform: scale(1.025);
+}
+
+.imageBadge {
+    position: absolute;
+
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 2;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    color: var(--color-secondary);
+
+    font-size: 1.05rem;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   CONTENT
+========================= */
 
 .content {
-    padding: 24px;
-
     display: flex;
     flex-direction: column;
 
-    gap: 16px;
+    justify-content: center;
+
+    padding: 52px;
 }
 
-.duration {
+.cardTitle {
+    margin: 0 0 22px;
+
+    font-family: var(--font-heading);
+
+    font-size: 2.2rem;
+    line-height: 1.15;
+
+    color: var(--color-text);
+}
+
+
+/* =========================
+   META
+========================= */
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 22px;
+
+    padding: 16px 0;
+
+    margin-bottom: 24px;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--color-text);
+
+    font-size: 0.9rem;
+}
+
+.metaItem svg {
     color: var(--color-primary);
 
-    font-weight: 600;
+    font-size: 0.85rem;
 }
 
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description {
+    margin: 0;
+
+    color: var(--color-text-light);
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   INCLUDES
+========================= */
+
 .includes {
+    margin-top: 30px;
+}
+
+.includes h3 {
+    margin: 0 0 16px;
+
+    color: var(--color-text);
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+.includes ul {
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
-
-    margin-top: 10px;
+    gap: 11px;
 
     padding: 0;
+    margin: 0;
 
     list-style: none;
 }
 
 .includes li {
-    color: var(--color-text);
-}
-
-.buttons {
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
 
-    gap: 14px;
+    gap: 10px;
 
-    margin-top: 24px;
+    color: var(--color-text);
+
+    font-size: 0.92rem;
+
+    line-height: 1.5;
 }
 
-.buttons button {
+.includes li svg {
+    flex-shrink: 0;
+
+    margin-top: 4px;
+
+    color: var(--color-primary);
+
+    font-size: 0.78rem;
+}
+
+
+/* =========================
+   ACTION
+========================= */
+
+.actions {
+    margin-top: 34px;
+}
+
+.actions a {
+    display: block;
+
+    width: 100%;
+
+    text-decoration: none;
+}
+
+.actions button {
     width: 100%;
 }
 
-.galleryTitle {
-    margin-top: 30px;
-    margin-bottom: 16px;
 
-    font-size: 1.3rem;
+/* =========================
+   GALLERY
+========================= */
+
+.gallerySection {
+    margin-top: 34px;
+}
+
+.galleryTitle {
+    margin: 0 0 18px;
+
+    font-family: var(--font-heading);
+
+    font-size: 1.4rem;
+
+    color: var(--color-text);
 }
 
 .gallery {
     display: flex;
+
     gap: 16px;
 
     overflow-x: auto;
 
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 
     scroll-snap-type: x mandatory;
+
+    scrollbar-width: thin;
 }
 
 .gallery img {
     flex-shrink: 0;
 
-    width: 85%;
-    height: 220px;
+    width: 300px;
+    height: 210px;
 
     border-radius: 18px;
 
     object-fit: cover;
 
     scroll-snap-align: start;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .page {
+        padding: 65px var(--spacing-lg) 100px;
+    }
+
+    .header {
+        margin-bottom: 50px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .card {
+        grid-template-columns: 1fr;
+    }
+
+    .imageWrapper {
+        min-height: 420px;
+        height: 420px;
+    }
+
+    .content {
+        padding: 40px;
+    }
+
+    .cardTitle {
+        font-size: 2rem;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 60px var(--spacing-md) 80px;
+    }
+
+    .header {
+        margin-bottom: 42px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .intro {
+        margin-top: 14px;
+
+        font-size: 0.98rem;
+    }
+
+    .experience {
+        scroll-margin-top: 90px;
+    }
+
+    .experience+.experience {
+        margin-top: 70px;
+
+        padding-top: 55px;
+    }
+
+    .experienceHeader {
+        gap: 12px;
+
+        margin-bottom: 16px;
+    }
+
+    .number {
+        font-size: 2.4rem;
+    }
+
+    .experienceLabel {
+        font-size: 0.7rem;
+    }
+
+    .card {
+        border-radius: 20px;
+    }
+
+    .imageWrapper {
+        min-height: 280px;
+        height: 280px;
+    }
+
+    .imageBadge {
+        right: 18px;
+        bottom: 18px;
+
+        width: 42px;
+        height: 42px;
+    }
+
+    .content {
+        padding: 26px 22px;
+    }
+
+    .cardTitle {
+        font-size: 1.7rem;
+
+        margin-bottom: 18px;
+    }
+
+    .meta {
+        gap: 14px;
+
+        padding: 13px 0;
+
+        margin-bottom: 20px;
+    }
+
+    .metaItem {
+        font-size: 0.84rem;
+    }
+
+    .description {
+        font-size: 0.94rem;
+
+        line-height: 1.7;
+    }
+
+    .includes {
+        margin-top: 24px;
+    }
+
+    .includes li {
+        font-size: 0.88rem;
+    }
+
+    .actions {
+        margin-top: 28px;
+    }
+
+    .gallerySection {
+        margin-top: 28px;
+    }
+
+    .galleryTitle {
+        font-size: 1.25rem;
+    }
+
+    .gallery img {
+        width: 82vw;
+        height: 190px;
+
+        border-radius: 16px;
+    }
 }

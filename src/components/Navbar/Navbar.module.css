@@ -150,6 +150,7 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
+
 @media (max-width: 768px) {
   .navbar {
     height: 64px;

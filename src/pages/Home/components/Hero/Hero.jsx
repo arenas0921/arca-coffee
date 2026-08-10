@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./Hero.module.css";
 import heroData from "../../../../data/heroData";
 import { useLanguage } from "../../../../context/LanguageContext";
+
 import {
     MapPinned,
     Leaf,
@@ -16,15 +17,39 @@ import {
 
 function Hero() {
     const { language } = useLanguage();
-    
+
+    const handleLocationClick = () => {
+        const element = document.getElementById("ubicacion");
+
+        if (!element) return;
+
+        const isMobile = window.innerWidth <= 600;
+
+        const navbarHeight = isMobile ? 30 : 60;
+
+        const elementPosition =
+            element.getBoundingClientRect().top +
+            window.scrollY;
+
+        window.scrollTo({
+            top: elementPosition - navbarHeight,
+            behavior: "smooth",
+        });
+    };
+
     return (
         <section
             className={styles.hero}
-            style={{ backgroundImage: `url(${heroImage})` }}
+            style={{
+                backgroundImage: `url(${heroImage})`
+            }}
         >
             <div className={styles.overlay}>
+
                 <Container>
+
                     <div className={styles.content}>
+
                         {/*
                         <div className={styles.chips}>
 
@@ -45,57 +70,77 @@ function Hero() {
 
                         </div>
                         */}
+
+
                         <h1>
                             {heroData.title[language]}
                         </h1>
+
+
                         <p>
                             {heroData.description[language]}
                         </p>
 
+
                         <div className={styles.actions}>
+
                             <a href="#productos">
                                 <Button>
                                     <UtensilsCrossed size={18} />
+
                                     {heroData.buttons.primary[language]}
                                 </Button>
                             </a>
 
+
                             <Link to="/experiencias">
                                 <Button variant="outline">
                                     <Coffee size={18} />
+
                                     {heroData.buttons.secondary[language]}
                                 </Button>
                             </Link>
+
+
                             <Button
-                                onClick={() =>
-                                    window.open(heroData.mapsUrl, "_blank", "noopener,noreferrer")
-                                }
+                                onClick={handleLocationClick}
                             >
                                 <MapPinned size={18} />
+
                                 {heroData.buttons.location[language]}
                             </Button>
+
                         </div>
+
 
                         <div className={styles.footerInfo}>
 
                             <span>
                                 <MapPinned size={16} />
+
                                 {heroData.footer.location[language]}
                             </span>
 
+
                             <span>
                                 <Clock3 size={16} />
+
                                 {heroData.footer.schedule[language]}
                             </span>
 
+
                             <span>
                                 <Trees size={16} />
+
                                 {heroData.footer.valley[language]}
                             </span>
 
                         </div>
+
                     </div>
+
                 </Container>
+
             </div>
         </section>
     );

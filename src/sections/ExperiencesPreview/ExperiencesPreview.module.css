@@ -1,8 +1,6 @@
 .section {
     max-width: var(--container-max-width);
-
     margin: 0 auto;
-
     padding: var(--spacing-3xl) var(--spacing-lg);
 }
 
@@ -10,7 +8,6 @@
     text-align: center;
 
     font-family: var(--font-heading);
-
     font-size: 2rem;
     line-height: 1.2;
 
@@ -22,50 +19,12 @@
 .container {
     display: flex;
     flex-direction: column;
-
-    gap: 24px;
 }
 
-.description {
-    text-align: center;
-
-    color: var(--color-text-light);
-
-    line-height: 1.7;
-
-    font-size: 1rem;
-}
-
-.image {
-    width: 100%;
-    height: 380px;
-    overflow: hidden;
-
-    border-radius: 24px 24px 0 0;
-    position: relative;
-
-}
-
-.image::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.25),
-        transparent 45%
-    );
-}
-
-.image img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
 }
 
 .card {
@@ -78,14 +37,87 @@
 
     background: white;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+.image {
+    width: 100%;
+    height: 320px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.3),
+            transparent 50%);
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.card:hover .image img {
+    transform: scale(1.03);
+}
+
+.imageOverlay {
+    position: absolute;
+
+    right: 22px;
+    bottom: 20px;
+
+    z-index: 2;
+}
+
+.imageOverlay span {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    color: var(--color-secondary);
+
+    font-size: 1rem;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .content {
     display: flex;
     flex-direction: column;
 
-    gap: 18px;
+    gap: 16px;
 
     padding: 28px;
 }
@@ -93,40 +125,210 @@
 .tag {
     color: var(--color-primary);
 
-    font-size: .9rem;
+    font-size: 0.78rem;
 
-    font-weight: 600;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
 }
 
 .cardTitle {
+    margin: 0;
+
     font-family: var(--font-heading);
 
     font-size: 1.8rem;
+    line-height: 1.2;
 
     color: var(--color-text);
 }
 
 .cardDescription {
+    margin: 0;
+
     color: var(--color-text-light);
 
-    line-height: 1.8;
+    line-height: 1.7;
+
+    font-size: 0.98rem;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    padding: 14px 0;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--color-text);
+
+    font-size: 0.88rem;
+}
+
+.metaItem svg {
+    color: var(--color-primary);
+
+    font-size: 0.85rem;
 }
 
 .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px 14px;
+
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+}
+
+.features li {
     display: flex;
-    flex-direction: column;
+    align-items: center;
 
-    gap: 10px;
-
-    padding-left: 20px;
+    gap: 8px;
 
     color: var(--color-text);
+
+    font-size: 0.88rem;
 }
 
-.content a {
+.features li svg {
+    flex-shrink: 0;
+
+    color: var(--color-primary);
+
+    font-size: 0.85rem;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 4px;
+}
+
+.primaryAction {
+    flex: 1;
+}
+
+.primaryAction button {
     width: 100%;
 }
 
-.content button {
-    width: 100%;
+.whatsappAction {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #25d366;
+    color: white;
+
+    font-size: 1.25rem;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.whatsappAction:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .cards {
+        grid-template-columns: 1fr;
+
+        max-width: 650px;
+
+        margin: 0 auto;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .section {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    .title {
+        font-size: 1.7rem;
+
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .cards {
+        gap: 22px;
+    }
+
+    .image {
+        height: 260px;
+    }
+
+    .content {
+        padding: 22px;
+
+        gap: 14px;
+    }
+
+    .cardTitle {
+        font-size: 1.55rem;
+    }
+
+    .cardDescription {
+        font-size: 0.94rem;
+
+        line-height: 1.65;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .meta {
+        gap: 12px;
+    }
+
+    .whatsappAction {
+        width: 46px;
+        height: 46px;
+    }
+
 }

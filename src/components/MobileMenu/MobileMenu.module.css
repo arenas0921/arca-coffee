@@ -16,12 +16,11 @@
     right: 0;
 
     width: min(420px, 92vw);
-    height: 100%;
 
     display: flex;
     flex-direction: column;
 
-    padding: 28px 28px 24px;
+    padding: 28px 28px 30px;
 
     background: #24140d;
 
@@ -29,7 +28,8 @@
 
     animation: slideIn 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 
-    overflow-y: auto;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
 }
 
 .header {
@@ -86,7 +86,7 @@
     width: 100%;
     height: 1px;
 
-    margin: 28px 0 38px;
+    margin: 28px 0 28px;
 
     background: rgba(213, 163, 90, 0.28);
 }
@@ -95,7 +95,7 @@
     display: flex;
     flex-direction: column;
 
-    gap: 8px;
+    gap: 4px;
 
     margin: 0;
     padding: 0;
@@ -116,12 +116,12 @@
 
     width: 100%;
 
-    padding: 15px 4px;
+    padding: 13px 4px;
 
     color: #f5efe6;
 
     font-family: var(--font-heading);
-    font-size: 1.45rem;
+    font-size: 1.35rem;
     font-weight: 500;
 
     text-decoration: none;
@@ -137,7 +137,7 @@
     position: absolute;
 
     left: 0;
-    bottom: 4px;
+    bottom: 3px;
 
     width: 0;
     height: 1px;
@@ -157,46 +157,16 @@
     width: 42px;
 }
 
-.whatsapp {
-    margin-top: 20px;
-
-    padding: 15px 18px !important;
-
-    border: 1px solid rgba(213, 163, 90, 0.45);
-    border-radius: 8px;
-
-    background: rgba(213, 163, 90, 0.1);
-
-    color: #f5efe6 !important;
-
-    font-family: var(--font-body) !important;
-    font-size: 1rem !important;
-    font-weight: 600 !important;
-
-    transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease !important;
-}
-
-.whatsapp::after {
-    display: none;
-}
-
-.whatsapp:hover {
-    padding-left: 18px !important;
-
-    background: rgba(213, 163, 90, 0.18);
-
-    border-color: #d5a35a;
-
-    transform: translateY(-1px);
-}
-
-.whatsapp svg {
+.whatsappIcon {
     color: #25d366;
 
     flex-shrink: 0;
+
+    transition: transform 0.25s ease;
+}
+
+.list a:hover .whatsappIcon {
+    transform: scale(1.08);
 }
 
 .footer {
@@ -204,8 +174,10 @@
     align-items: center;
     justify-content: space-between;
 
-    margin-top: auto;
-    padding-top: 40px;
+    margin-top: 24px;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(213, 163, 90, 0.18);
 }
 
 .languageButton {

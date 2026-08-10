@@ -1,36 +1,40 @@
 const navLinks = [
     {
         type: "scroll",
-        href: "#mirador",
+        href: "/#mirador",
         label: {
             es: "Mirador",
             en: "Viewpoint",
         },
     },
+
     {
         type: "scroll",
-        href: "#productos",
+        href: "/#productos",
         label: {
             es: "Métodos",
             en: "Methods",
         },
     },
+
     {
-        type: "scroll",
-        href: "#experiencias",
+        type: "route",
+        href: "/experiencias",
         label: {
             es: "Experiencias",
             en: "Experiences",
         },
     },
+
     {
         type: "scroll",
-        href: "#ubicacion",
+        href: "/#ubicacion",
         label: {
             es: "Ubicación",
             en: "Location",
         },
     },
+
     {
         type: "whatsapp",
         href: "https://wa.me/57XXXXXXXXXX",

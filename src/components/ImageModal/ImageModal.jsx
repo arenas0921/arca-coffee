@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./ImageModal.module.css";
+import { useLanguage } from "../../context/LanguageContext";
 
 function ImageModal({
     isOpen,
@@ -11,6 +12,8 @@ function ImageModal({
     slides = [],
     onClose,
 }) {
+    const { language } = useLanguage();
+
     const gallery = slides.length
         ? slides
         : image
@@ -74,6 +77,16 @@ function ImageModal({
 
     const hasGallery = gallery.length > 1;
 
+    const currentTitle =
+        typeof currentSlide.title === "object"
+            ? currentSlide.title[language]
+            : currentSlide.title;
+
+    const currentDescription =
+        typeof currentSlide.description === "object"
+            ? currentSlide.description[language]
+            : currentSlide.description;
+
     const nextSlide = () => {
         setCurrentIndex((prev) =>
             prev === gallery.length - 1 ? 0 : prev + 1
@@ -119,8 +132,11 @@ function ImageModal({
             onClick={onClose}
         >
             <div
-                className={`${styles.modal} ${currentSlide.description ? styles.modalWithDescription : ""
-                    }`}
+                className={`${styles.modal} ${
+                    currentDescription
+                        ? styles.modalWithDescription
+                        : ""
+                }`}
                 onClick={(event) => event.stopPropagation()}
             >
                 <button
@@ -132,7 +148,7 @@ function ImageModal({
                 </button>
 
                 <h2 className={styles.title}>
-                    {currentSlide.title}
+                    {currentTitle}
                 </h2>
 
                 <div
@@ -159,7 +175,7 @@ function ImageModal({
 
                     <img
                         src={currentSlide.image}
-                        alt={currentSlide.title}
+                        alt={currentTitle}
                         className={styles.image}
                     />
 
@@ -174,9 +190,9 @@ function ImageModal({
                     )}
                 </div>
 
-                {currentSlide.description && (
+                {currentDescription && (
                     <p className={styles.description}>
-                        {currentSlide.description}
+                        {currentDescription}
                     </p>
                 )}
 
@@ -184,7 +200,7 @@ function ImageModal({
                     <div className={styles.indicators}>
                         {gallery.map((slide, index) => (
                             <button
-                                key={`${slide.title}-${index}`}
+                                key={`${index}`}
                                 className={
                                     index === currentIndex
                                         ? styles.activeIndicator
@@ -193,7 +209,11 @@ function ImageModal({
                                 onClick={() =>
                                     setCurrentIndex(index)
                                 }
-                                aria-label={`Ir a ${slide.title}`}
+                                aria-label={`Ir a ${
+                                    typeof slide.title === "object"
+                                        ? slide.title[language]
+                                        : slide.title
+                                }`}
                             />
                         ))}
                     </div>

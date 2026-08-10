@@ -18,9 +18,9 @@ const heroData = {
   },
 
   description: {
-    es: "La mejor vista, cinco orígenes de café colombiano y el arte de una buena preparación. Bebidas de autor y cocteles con frutos amazónicos.",
-    en: "The best view, five Colombian coffee origins, and the art of a great preparation. Signature drinks and cocktails with Amazonian fruits.",
-  },
+    es: "La mejor vista, cinco orígenes de café colombiano. Bebidas de autor, cocteles con frutos amazónicos y el arte de una buena preparación.",
+    en: "The best view, five Colombian coffee origins, signature drinks, cocktails with Amazonian fruits, and the art of a great preparation.",
+},
 
   buttons: {
     primary: {

@@ -18,14 +18,15 @@ const heroData = {
   },
 
   description: {
-    es: "La mejor vista, cinco orígenes de café colombiano. Bebidas de autor, cocteles con frutos amazónicos y el arte de una buena preparación.",
-    en: "The best view, five Colombian coffee origins, signature drinks, cocktails with Amazonian fruits, and the art of a great preparation.",
-},
+    es: "El mirador con la mejor vista, orígenes de café colombiano. Bebidas y cocteles de autor con frutos amazónicos y el arte de una buena preparación.",
+    en: "The viewpoint with the best view, Colombian coffee origins. Signature drinks and cocktails featuring Amazonian fruits, and the art of a great preparation.",
+  },
+
 
   buttons: {
     primary: {
-      es: "Método",
-      en: "Method",
+      es: "Preparación",
+      en: "Workshop",
     },
     secondary: {
       es: "Experiencias",
@@ -50,8 +51,8 @@ const heroData = {
       en: "Open Tuesday to Sunday",
     },
     valley: {
-      es: "A minutos del Valle de Cocora",
-      en: "Minutes from Cocora Valley",
+      es: "Mirador",
+      en: "Viewpoint",
     },
   },
 

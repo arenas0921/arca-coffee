@@ -13,17 +13,31 @@ function Footer() {
             <div className={styles.content}>
 
                 <div className={styles.socials}>
-                    <span className={styles.socialButton} aria-label="Instagram">
-                        <FaInstagram />
-                    </span>
 
-                    <span className={styles.socialButton} aria-label="Facebook">
+                    <a
+                        href="https://www.instagram.com/arcacoffeespecial?igsi=MXh5NGt6MGoxYmN1Ng%3D%3D"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.socialButton}
+                        aria-label="Instagram"
+                    >
+                        <FaInstagram />
+                    </a>
+
+                    <span
+                        className={styles.socialButton}
+                        aria-label="Facebook"
+                    >
                         <FaFacebookF />
                     </span>
 
-                    <span className={styles.socialButton} aria-label="TikTok">
+                    <span
+                        className={styles.socialButton}
+                        aria-label="TikTok"
+                    >
                         <FaTiktok />
                     </span>
+
                 </div>
 
                 <div className={styles.divider} />

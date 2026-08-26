@@ -1,5 +1,5 @@
-import p1 from "../assets/images/origenes/col.png";
-import p2 from "../assets/images/products/p2.jpg";
+import p1 from "../assets/images/origenes/11.jpg";
+import p2 from "../assets/images/products/espresso1.jpg";
 import p3 from "../assets/images/products/p3.jpg";
 import p4 from "../assets/images/products/p4.jpg";
 import p10 from "../assets/images/products/p10.jpg";
@@ -14,8 +14,8 @@ const productsData = [
         },
 
         subtitle: {
-            es: "Cinco montañas. Cinco sabores. Un solo país.",
-            en: "Five mountains. Five flavors. One country.",
+            es: "Descubre el origen del café colombiano.",
+            en: "Discover the origin of Colombian coffee.",
         },
 
         image: p1,

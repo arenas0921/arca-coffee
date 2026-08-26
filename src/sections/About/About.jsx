@@ -1,5 +1,5 @@
 import styles from "./About.module.css";
-import aboutImage from "../../assets/images/about/about1.jpg";
+import aboutImage from "../../assets/images/about/about2.jpg";
 import { useLanguage } from "../../context/LanguageContext";
 import { useState } from "react";
 import ImageModal from "../../components/ImageModal";
@@ -12,9 +12,11 @@ function About() {
         <section className={styles.section}>
             <div className={styles.content}>
 
-                <span className={styles.eyebrow}>
-                    {translations.about.eyebrow}
-                </span>
+                {translations.about.eyebrow && (
+                    <span className={styles.eyebrow}>
+                        {translations.about.eyebrow}
+                    </span>
+                )}
 
                 <h2 className={styles.title}>
                     {translations.about.title}
@@ -36,16 +38,15 @@ function About() {
                     {translations.about.intro.after}
                 </p>
                 <div className={styles.text}>
-                    {translations.about.description.map((paragraph, index) => (
-                        <p key={index}>
-                            {paragraph.highlight && (
-                                <span className={styles.highlight}>
-                                    {paragraph.highlight}{" "}
-                                </span>
-                            )}
-                            {paragraph.text}
-                        </p>
-                    ))}
+                    <p>
+                        {translations.about.description.before}
+
+                        <span className={styles.highlight}>
+                            {translations.about.description.highlight}
+                        </span>
+
+                        {translations.about.description.after}
+                    </p>
                 </div>
 
                 <div className={styles.imageContainer}>
@@ -64,9 +65,11 @@ function About() {
                     </span>
                 </div>
 
-                <p className={styles.quote}>
-                    {translations.about.quote}
-                </p>
+                {translations.about.quote && (
+                    <p className={styles.quote}>
+                        {translations.about.quote}
+                    </p>
+                )}
 
             </div>
             <ImageModal

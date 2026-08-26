@@ -62,10 +62,16 @@
 
 .experience {
     scroll-margin-top: 100px;
+
+    padding: 32px;
+
+    border-radius: 28px;
+
+    background: #30241d;
 }
 
 .experience+.experience {
-    margin-top: 110px;
+    margin-top: 80px;
 
     padding-top: 80px;
 
@@ -93,13 +99,13 @@
 
     line-height: 1;
 
-    color: var(--color-primary);
+    color: var(--color-secondary);
 
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .experienceLabel {
-    color: var(--color-text-light);
+    color: rgba(255, 255, 255, 0.72);
 
     font-size: 0.78rem;
 
@@ -149,7 +155,8 @@
 
     inset: 0;
 
-    background: linear-gradient(to top,
+    background:
+        linear-gradient(to top,
             rgba(0, 0, 0, 0.25),
             transparent 45%);
 
@@ -164,7 +171,8 @@
 
     object-fit: cover;
 
-    transition: transform 0.5s ease;
+    transition:
+        transform 0.5s ease;
 }
 
 .card:hover .image {
@@ -360,6 +368,8 @@
 
 .gallerySection {
     margin-top: 34px;
+
+    width: 100%;
 }
 
 .galleryTitle {
@@ -369,34 +379,122 @@
 
     font-size: 1.4rem;
 
-    color: var(--color-text);
+    color: white;
 }
+
+
+/*
+ * Solo una fotografía visible.
+ * Las demás permanecen dentro del componente
+ * y se muestran mediante navegación.
+ */
 
 .gallery {
+    position: relative;
+
+    width: 100%;
+
     display: flex;
-
-    gap: 16px;
-
-    overflow-x: auto;
-
-    padding-bottom: 12px;
-
-    scroll-snap-type: x mandatory;
-
-    scrollbar-width: thin;
+    align-items: center;
+    justify-content: center;
 }
 
-.gallery img {
-    flex-shrink: 0;
+.galleryImageButton {
+    display: block;
 
-    width: 300px;
-    height: 210px;
+    width: min(760px, 82%);
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
 
     border-radius: 18px;
 
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.galleryImage {
+    display: block;
+
+    width: 100%;
+    height: 260px;
+
     object-fit: cover;
 
-    scroll-snap-align: start;
+    border-radius: 18px;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.galleryImageButton:hover .galleryImage {
+    transform: scale(1.015);
+
+    filter: brightness(0.93);
+}
+
+
+/* =========================
+   GALLERY ARROWS
+========================= */
+
+.galleryArrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: var(--color-text);
+
+    font-size: 1.7rem;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.18);
+
+    z-index: 3;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.galleryArrow:hover {
+    transform: translateY(-50%) scale(1.08);
+
+    background: white;
+}
+
+.galleryArrowLeft {
+    left: 4%;
+}
+
+.galleryArrowRight {
+    right: 4%;
 }
 
 
@@ -418,6 +516,10 @@
         font-size: 2.5rem;
     }
 
+    .experience {
+        padding: 26px;
+    }
+
     .card {
         grid-template-columns: 1fr;
     }
@@ -433,6 +535,22 @@
 
     .cardTitle {
         font-size: 2rem;
+    }
+
+    .galleryImageButton {
+        width: 88%;
+    }
+
+    .galleryImage {
+        height: 250px;
+    }
+
+    .galleryArrowLeft {
+        left: 1%;
+    }
+
+    .galleryArrowRight {
+        right: 1%;
     }
 }
 
@@ -463,6 +581,10 @@
 
     .experience {
         scroll-margin-top: 90px;
+
+        padding: 20px;
+
+        border-radius: 22px;
     }
 
     .experience+.experience {
@@ -550,10 +672,89 @@
         font-size: 1.25rem;
     }
 
-    .gallery img {
-        width: 82vw;
-        height: 190px;
+    .galleryImageButton {
+        width: 88%;
+    }
+
+    .galleryImage {
+        height: 200px;
 
         border-radius: 16px;
+    }
+
+    .galleryArrow {
+        width: 38px;
+        height: 38px;
+
+        font-size: 1.45rem;
+    }
+
+    .galleryArrowLeft {
+        left: 0;
+    }
+
+    .galleryArrowRight {
+        right: 0;
+    }
+
+    /* todo tu CSS actual */
+
+
+    /* ========================================
+   MODALIDADES EXPERIENCIA 03
+======================================== */
+
+    .modalities {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .modality {
+        padding: 1.5rem;
+        background: #F7F1E8;
+        border-radius: var(--border-radius-md);
+        border-left: 3px solid var(--color-secondary);
+    }
+
+    .modalityTitle {
+        margin: 0 0 .6rem;
+
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        font-weight: 600;
+
+        color: var(--color-primary-dark);
+        letter-spacing: .04em;
+    }
+
+    .modalitySubtitle {
+        margin: 0 0 .8rem;
+
+        font-weight: 600;
+        line-height: 1.5;
+
+        color: var(--color-text);
+    }
+
+    .modalityDescription {
+        margin: 0 0 .8rem;
+
+        line-height: 1.7;
+        color: var(--color-text-light);
+    }
+
+    .modalityIdeal {
+        margin: 0;
+
+        font-size: .9rem;
+        line-height: 1.5;
+
+        color: var(--color-text-light);
+    }
+
+    .modalityIdeal strong {
+        color: var(--color-primary);
     }
 }

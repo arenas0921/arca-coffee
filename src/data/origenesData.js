@@ -1,60 +1,52 @@
-import col from "../assets/images/origenes/col.png";
-import narino from "../assets/images/origenes/narino.png";
-import huila from "../assets/images/origenes/huila.png";
-import tolima from "../assets/images/origenes/tolima.png";
-import caqueta from "../assets/images/origenes/caqueta.png";
-import sierra from "../assets/images/origenes/sierra.png";
+import o1 from "../assets/images/origenes/11.jpg";
+import o2 from "../assets/images/origenes/12.jpg";
+import o3 from "../assets/images/origenes/14.jpg";
+import o4 from "../assets/images/origenes/16.jpg";
+import o5 from "../assets/images/origenes/15.jpg";
+
 
 const origenesData = [
     {
-        image: col,
+        image: o1,
         title: {
             es: "Los Orígenes",
             en: "The Origins",
         },
         description: {
-            es: `En Colombia el café no sabe igual en todas partes, y esa es justamente la gracia. La altura, el suelo, el clima y las manos que lo cultivan hacen que un grano del Huila no se parezca a otro.
+            es: `Colombia es un territorio de extraordinaria diversidad cafetera. Sus montañas, valles y laderas, junto con la altitud, el clima, los suelos y los diferentes regímenes de lluvia, crean condiciones únicas para el cultivo del café.
 
-Por eso en Arca servimos orígenes, con nombre y apellido: Huila, Tolima, Nariño, Sierra Nevada y Caquetá. Cinco regiones, cinco historias, cinco maneras distintas de que Colombia sepa a Colombia.
+Cada región expresa estas condiciones de manera diferente, dando lugar a cafés con personalidades y perfiles sensoriales propios. A esta diversidad natural se suman la genética, el conocimiento de los caficultores y las distintas formas de cosechar y beneficiar el fruto.
 
-Cada uno tiene su carácter y su mejor forma de prepararse.
+En ARCA COFFEE, recorremos esta diversidad a través de diferentes orígenes colombianos, para descubrir cómo cada territorio encuentra su propia expresión en una taza.`,
 
-Pregúntale a tu barista por el origen del día, o déjate llevar y prueba dos para comparar.`,
+            en: `Colombia is a land of extraordinary coffee diversity. Its mountains, valleys, and slopes, together with altitude, climate, soils, and different rainfall patterns, create unique conditions for growing coffee.
 
-            en: `In Colombia, coffee doesn't taste the same everywhere, and that's precisely the beauty of it. Altitude, soil, climate, and the hands that cultivate it make a coffee from Huila unlike any other.
+Each region expresses these conditions differently, giving rise to coffees with their own personalities and sensory profiles. This natural diversity is complemented by genetics, the knowledge of coffee growers, and the different ways the fruit is harvested and processed.
 
-That's why at Arca we serve coffees by origin, each with its own name and story: Huila, Tolima, Nariño, Sierra Nevada, and Caquetá. Five regions, five stories, five different ways for Colombia to taste like Colombia.
-
-Each one has its own character and its own best way to be prepared.
-
-Ask your barista about the origin of the day, or let yourself be guided and try two to compare.`
+At ARCA COFFEE, we explore this diversity through different Colombian origins, discovering how each territory finds its own expression in a cup..`
         },
     },
 
     {
-        image: narino,
-        title: "Nariño",
+        image: o2,
+        title: "Orígenes",
     },
 
     {
-        image: huila,
-        title: "Huila",
+        image: o3,
+        title: "Orígenes",
     },
 
     {
-        image: tolima,
-        title: "Tolima",
+        image: o4,
+        title: "Orígenes",
     },
 
     {
-        image: caqueta,
-        title: "Caquetá",
+        image: o5,
+        title: "Orígenes",
     },
 
-    {
-        image: sierra,
-        title: "Sierra Nevada",
-    },
 ];
 
 export default origenesData;

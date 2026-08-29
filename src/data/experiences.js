@@ -6,14 +6,11 @@ import c4 from "../assets/images/experiences/c4.jpg";
 import c5 from "../assets/images/experiences/c5.jpg";
 import c6 from "../assets/images/experiences/c6.jpg";
 import c7 from "../assets/images/experiences/c7.jpg";
-
 import e21 from "../assets/images/experiences/e22.jpg";
 import e22 from "../assets/images/experiences/molino.jpg";
 import e23 from "../assets/images/experiences/maquina.jpg";
-import e26 from "../assets/images/experiences/arn.jpg";
 import e24 from "../assets/images/experiences/latte1.jpg";
 import e25 from "../assets/images/experiences/latte2.jpg";
-
 import e31 from "../assets/images/experiences/e31.jpg";
 import e32 from "../assets/images/experiences/e32.jpg";
 import e33 from "../assets/images/experiences/e33.jpg";
@@ -116,7 +113,6 @@ const experiences = [
         gallery: [
             e22,
             e23,
-            e26,
             e24,
             e25
         ]

@@ -1,8 +1,14 @@
+/* =========================================
+   OVERLAY PRINCIPAL
+========================================= */
+
 .overlay {
     position: fixed;
+
     inset: 0;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -15,28 +21,38 @@
     animation: fadeIn .25s ease;
 }
 
+
+/* =========================================
+   MODAL
+========================================= */
+
 .modal {
     position: relative;
 
     width: min(100%, 1000px);
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     animation: zoomIn .25s ease;
 }
 
+
 /* =========================================
    MODAL CON DESCRIPCIÓN
-   ========================================= */
+========================================= */
 
 .modalWithDescription {
     display: grid;
 
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+    grid-template-columns:
+        minmax(0, 1.1fr) minmax(320px, .9fr);
 
     column-gap: 2.5rem;
+
     row-gap: 1rem;
 
     align-items: center;
@@ -53,9 +69,10 @@
         0 25px 80px rgba(0, 0, 0, .45);
 }
 
+
 /* =========================================
    TÍTULO
-   ========================================= */
+========================================= */
 
 .title {
     margin: 0 0 1rem;
@@ -63,12 +80,15 @@
     color: white;
 
     font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
+
+    font-size:
+        clamp(1.5rem, 3vw, 2.2rem);
 
     text-align: center;
 }
 
-/* Título cuando hay descripción */
+
+/* Título con descripción */
 
 .modalWithDescription .title {
     grid-column: 2;
@@ -80,10 +100,12 @@
 
     text-align: left;
 
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-size:
+        clamp(1.6rem, 3vw, 2.4rem);
 
     letter-spacing: .03em;
 }
+
 
 .modalWithDescription .title::after {
     content: "";
@@ -98,52 +120,175 @@
     background: #c9a24d;
 }
 
+
 /* =========================================
-   IMAGEN
-   ========================================= */
+   CONTENEDOR DE IMAGEN
+========================================= */
 
 .imageWrapper {
     position: relative;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     width: 100%;
 }
 
+
+/*
+ * Con descripción ocupa la columna izquierda.
+ */
+
 .modalWithDescription .imageWrapper {
     grid-column: 1;
+
     grid-row: 1 / span 2;
 
     width: 100%;
 }
 
+
+/* =========================================
+   CONTENEDOR REAL DE LA FOTO
+
+   ESTE ES EL CAMBIO IMPORTANTE.
+
+   El contenedor se adapta al tamaño real
+   de la imagen.
+========================================= */
+
+.imageContainer {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    max-width: 100%;
+
+    line-height: 0;
+}
+
+
+/* =========================================
+   IMAGEN
+========================================= */
+
 .image {
     display: block;
 
     max-width: 90vw;
+
     max-height: 75vh;
 
     border-radius: 16px;
 
     object-fit: contain;
 
+    cursor: zoom-in;
+
     box-shadow:
         0 20px 60px rgba(0, 0, 0, .35);
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
 }
+
+
+/*
+ * Efecto visual al pasar el mouse.
+ */
+
+.image:hover {
+    filter: brightness(.94);
+}
+
 
 .modalWithDescription .image {
     width: 100%;
+
     max-width: 100%;
+
     max-height: 72vh;
 
     border-radius: 12px;
 }
 
+
 /* =========================================
-   CIERRE
-   ========================================= */
+   BOTÓN AMPLIAR
+
+   Ahora pertenece al imageContainer,
+   por lo que queda SIEMPRE dentro
+   de la esquina de la fotografía.
+========================================= */
+
+.expandButton {
+    position: absolute;
+
+    right: 12px;
+    bottom: 12px;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    color: white;
+
+    background:
+        rgba(0, 0, 0, .55);
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, .3);
+
+    font-size: .95rem;
+
+    line-height: 1;
+
+    z-index: 5;
+
+    opacity: .9;
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        opacity .2s ease;
+}
+
+
+.expandButton:hover {
+    background:
+        rgba(0, 0, 0, .82);
+
+    transform: scale(1.08);
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   CIERRE PRINCIPAL
+========================================= */
 
 .closeButton {
     position: absolute;
@@ -155,119 +300,148 @@
     height: 42px;
 
     border: none;
+
     border-radius: 50%;
 
     cursor: pointer;
 
     font-size: 1.8rem;
+
     line-height: 1;
 
     color: white;
 
-    background: rgba(255, 255, 255, .18);
+    background:
+        rgba(255, 255, 255, .18);
 
     backdrop-filter: blur(8px);
 
-    transition: background .25s ease;
+    transition:
+        background .25s ease;
 
-    z-index: 2;
+    z-index: 10;
 }
+
 
 .closeButton:hover {
-    background: rgba(0, 0, 0, .85);
+    background:
+        rgba(0, 0, 0, .85);
 }
+
 
 /* =========================================
    FLECHAS
-   ========================================= */
+========================================= */
 
 .arrow {
     position: absolute;
 
     top: 50%;
-    transform: translateY(-50%);
+
+    transform:
+        translateY(-50%);
 
     width: 48px;
     height: 48px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border: none;
+
     border-radius: 50%;
 
     cursor: pointer;
 
     color: white;
-    background: rgba(255, 255, 255, .18);
+
+    background:
+        rgba(255, 255, 255, .18);
 
     backdrop-filter: blur(8px);
 
     font-size: 2.2rem;
+
     line-height: 1;
 
     transition:
         background .25s ease,
         transform .25s ease;
 
-    z-index: 2;
+    z-index: 6;
 }
+
 
 .arrow:hover {
-    background: rgba(0, 0, 0, .8);
+    background:
+        rgba(0, 0, 0, .8);
 
-    transform: translateY(-50%) scale(1.08);
+    transform:
+        translateY(-50%) scale(1.08);
 }
+
 
 .previous {
     left: 1rem;
 }
 
+
 .next {
     right: 1rem;
 }
 
+
 /* =========================================
    DESCRIPCIÓN
-   ========================================= */
+========================================= */
 
 .description {
     max-width: 700px;
 
     margin: 1rem 0 0;
 
-    color: rgba(255, 255, 255, .82);
+    color:
+        rgba(255, 255, 255, .82);
 
     font-family: var(--font-body);
+
     font-size: 1rem;
+
     line-height: 1.6;
 
     text-align: center;
 }
 
+
 .modalWithDescription .description {
     grid-column: 2;
+
     grid-row: 2;
 
     max-width: none;
 
     margin: 0;
 
-    color: rgba(255, 255, 255, .84);
+    color:
+        rgba(255, 255, 255, .84);
 
     font-size: 1rem;
+
     line-height: 1.7;
 
     text-align: left;
 }
 
+
 /* =========================================
    INDICADORES
-   ========================================= */
+========================================= */
 
 .indicators {
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -276,12 +450,15 @@
     margin-top: 1rem;
 }
 
+
 .modalWithDescription .indicators {
     grid-column: 1 / -1;
+
     grid-row: 3;
 
     margin-top: .25rem;
 }
+
 
 .indicator,
 .activeIndicator {
@@ -291,16 +468,19 @@
     padding: 0;
 
     border: none;
+
     border-radius: 50%;
 
     cursor: pointer;
 
-    background: rgba(255, 255, 255, .4);
+    background:
+        rgba(255, 255, 255, .4);
 
     transition:
         transform .25s ease,
         background .25s ease;
 }
+
 
 .activeIndicator {
     background: #c9a24d;
@@ -308,15 +488,124 @@
     transform: scale(1.35);
 }
 
+
 .indicator:hover {
-    background: rgba(255, 255, 255, .8);
+    background:
+        rgba(255, 255, 255, .8);
 }
+
+
+/* =========================================
+   VISTA AMPLIADA
+========================================= */
+
+.expandedOverlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem;
+
+    background:
+        rgba(0, 0, 0, .94);
+
+    z-index: 10000;
+
+    animation: fadeIn .2s ease;
+}
+
+
+/*
+ * Imagen ampliada.
+ */
+
+.expandedImage {
+    display: block;
+
+    max-width: 96vw;
+
+    max-height: 94vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    cursor: default;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, .6);
+
+    animation: zoomIn .2s ease;
+}
+
+
+/*
+ * Botón de cierre de la imagen ampliada.
+ */
+
+.expandedCloseButton {
+    position: fixed;
+
+    top: 22px;
+    right: 22px;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    color: white;
+
+    background:
+        rgba(255, 255, 255, .18);
+
+    backdrop-filter: blur(8px);
+
+    font-size: 2rem;
+
+    line-height: 1;
+
+    z-index: 10001;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+.expandedCloseButton:hover {
+    background:
+        rgba(0, 0, 0, .85);
+
+    transform: scale(1.08);
+}
+
 
 /* =========================================
    ANIMACIONES
-   ========================================= */
+========================================= */
 
 @keyframes fadeIn {
+
     from {
         opacity: 0;
     }
@@ -324,23 +613,32 @@
     to {
         opacity: 1;
     }
+
 }
+
 
 @keyframes zoomIn {
+
     from {
         opacity: 0;
-        transform: scale(.95);
+
+        transform:
+            scale(.95);
     }
 
     to {
         opacity: 1;
-        transform: scale(1);
+
+        transform:
+            scale(1);
     }
+
 }
+
 
 /* =========================================
    RESPONSIVE
-   ========================================= */
+========================================= */
 
 @media (max-width: 768px) {
 
@@ -348,21 +646,26 @@
         padding: 1rem;
     }
 
+
     .modal {
         width: 100%;
     }
 
+
     .modalWithDescription {
         display: flex;
+
         flex-direction: column;
 
         width: 100%;
+
         max-height: 92vh;
 
         padding: 1.25rem;
 
         gap: 1rem;
     }
+
 
     .title,
     .modalWithDescription .title {
@@ -377,23 +680,53 @@
         text-align: center;
     }
 
+
     .modalWithDescription .title::after {
         margin-left: auto;
+
         margin-right: auto;
     }
+
 
     .imageWrapper,
     .modalWithDescription .imageWrapper {
         order: 2;
     }
 
+
+    /*
+     * El contenedor sigue adaptándose
+     * al tamaño real de cada foto.
+     */
+
+    .imageContainer {
+        max-width: 88vw;
+    }
+
+
     .image,
     .modalWithDescription .image {
         max-width: 88vw;
+
         max-height: 58vh;
 
         border-radius: 12px;
     }
+
+
+    /* Botón de ampliar en móvil */
+
+    .expandButton {
+        right: 10px;
+
+        bottom: 10px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: .85rem;
+    }
+
 
     .description,
     .modalWithDescription .description {
@@ -404,13 +737,16 @@
         margin-top: 0;
 
         font-size: .9rem;
+
         line-height: 1.55;
 
         text-align: left;
 
         overflow-y: auto;
+
         max-height: 25vh;
     }
+
 
     .indicators,
     .modalWithDescription .indicators {
@@ -419,25 +755,62 @@
         margin-top: .25rem;
     }
 
+
     .arrow {
         width: 40px;
         height: 40px;
 
         font-size: 1.8rem;
 
-        background: rgba(255, 255, 255, .22);
+        background:
+            rgba(255, 255, 255, .22);
     }
+
 
     .previous {
         left: .4rem;
     }
 
+
     .next {
         right: .4rem;
     }
 
+
     .closeButton {
         top: -8px;
+
         right: -4px;
     }
+
+
+    /* =========================================
+       AMPLIACIÓN EN MÓVIL
+    ========================================= */
+
+    .expandedOverlay {
+        padding: .75rem;
+    }
+
+
+    .expandedImage {
+        max-width: 96vw;
+
+        max-height: 92vh;
+
+        border-radius: 6px;
+    }
+
+
+    .expandedCloseButton {
+        top: 12px;
+
+        right: 12px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 1.8rem;
+    }
+
 }

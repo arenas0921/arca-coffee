@@ -3,6 +3,7 @@ import p2 from "../assets/images/products/espresso1.jpg";
 import p3 from "../assets/images/products/p3.jpg";
 import p4 from "../assets/images/products/p4.jpg";
 import p10 from "../assets/images/products/p10.jpg";
+import p5 from "../assets/images/products/arn.jpg";
 
 const productsData = [
     {
@@ -14,8 +15,8 @@ const productsData = [
         },
 
         subtitle: {
-            es: "Descubre el origen del café colombiano.",
-            en: "Discover the origin of Colombian coffee.",
+            es: "Diversidad cafetera. Una Colombia por descubrir.",
+            en: "Coffee diversity. A Colombia waiting to be discovered.",
         },
 
         image: p1,
@@ -54,7 +55,7 @@ const productsData = [
             en: "Coffee tastes different depending on how it is prepared.",
         },
 
-        image: p3,
+        image: p5,
 
         featured: true,
     },

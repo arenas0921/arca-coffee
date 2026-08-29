@@ -28,6 +28,15 @@ const navLinks = [
 
     {
         type: "scroll",
+        href: "/#tienda",
+        label: {
+            es: "Tienda",
+            en: "Shop",
+        },
+    },
+
+    {
+        type: "scroll",
         href: "/#ubicacion",
         label: {
             es: "Ubicación",
@@ -37,7 +46,7 @@ const navLinks = [
 
     {
         type: "whatsapp",
-        href: "https://wa.me/57XXXXXXXXXX",
+        href: "https://wa.me/573222190438",
         label: {
             es: "Reservar",
             en: "Book",

@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
+
 import experiences from "../../data/experiences";
+
 import styles from "./Experiences.module.css";
+
 import Button from "../../components/Button";
 import ImageModal from "../../components/ImageModal";
+
+import Footer from "../../sections/Footer";
+
 import { useLanguage } from "../../context/LanguageContext";
 import { useLocation } from "react-router-dom";
 
@@ -15,10 +21,15 @@ import {
 } from "react-icons/fa";
 
 
-function ExperienceGallery({ experience, language, galleryTitle }) {
+function ExperienceGallery({
+    experience,
+    language,
+    galleryTitle
+}) {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     const gallery = experience.gallery || [];
 
@@ -26,6 +37,7 @@ function ExperienceGallery({ experience, language, galleryTitle }) {
     useEffect(() => {
 
         if (gallery.length <= 1) return;
+
 
         const interval = setInterval(() => {
 
@@ -36,6 +48,7 @@ function ExperienceGallery({ experience, language, galleryTitle }) {
             );
 
         }, 10000);
+
 
         return () => {
             clearInterval(interval);
@@ -73,6 +86,7 @@ function ExperienceGallery({ experience, language, galleryTitle }) {
 
     return (
         <>
+
             <div className={styles.gallerySection}>
 
                 <h3 className={styles.galleryTitle}>
@@ -83,7 +97,9 @@ function ExperienceGallery({ experience, language, galleryTitle }) {
                 <div className={styles.gallery}>
 
                     {gallery.length > 1 && (
+
                         <button
+                            type="button"
                             className={`${styles.galleryArrow} ${styles.galleryArrowLeft}`}
                             onClick={previousImage}
                             aria-label={
@@ -94,12 +110,16 @@ function ExperienceGallery({ experience, language, galleryTitle }) {
                         >
                             ‹
                         </button>
+
                     )}
 
 
                     <button
+                        type="button"
                         className={styles.galleryImageButton}
-                        onClick={() => setIsModalOpen(true)}
+                        onClick={() =>
+                            setIsModalOpen(true)
+                        }
                     >
 
                         <img
@@ -112,7 +132,9 @@ function ExperienceGallery({ experience, language, galleryTitle }) {
 
 
                     {gallery.length > 1 && (
+
                         <button
+                            type="button"
                             className={`${styles.galleryArrow} ${styles.galleryArrowRight}`}
                             onClick={nextImage}
                             aria-label={
@@ -123,6 +145,7 @@ function ExperienceGallery({ experience, language, galleryTitle }) {
                         >
                             ›
                         </button>
+
                     )}
 
                 </div>
@@ -133,13 +156,16 @@ function ExperienceGallery({ experience, language, galleryTitle }) {
             <ImageModal
                 isOpen={isModalOpen}
                 images={gallery}
-                currentIndex={currentIndex}
+                initialIndex={currentIndex}
                 alt={experience.title[language]}
-                onClose={() => setIsModalOpen(false)}
+                onClose={() =>
+                    setIsModalOpen(false)
+                }
             />
 
         </>
     );
+
 }
 
 
@@ -147,12 +173,14 @@ function ExperienceGallery({ experience, language, galleryTitle }) {
 function Experiences() {
 
     const { language } = useLanguage();
+
     const location = useLocation();
 
 
     const content = {
 
         es: {
+
             title: "Experiencias",
 
             intro:
@@ -172,10 +200,12 @@ function Experiences() {
 
             smallGroups:
                 "Grupos pequeños"
+
         },
 
 
         en: {
+
             title: "Experiences",
 
             intro:
@@ -195,6 +225,7 @@ function Experiences() {
 
             smallGroups:
                 "Small groups"
+
         }
 
     };
@@ -202,6 +233,19 @@ function Experiences() {
 
     const text = content[language];
 
+
+    /*
+     * Control de posición al entrar a la página.
+     *
+     * /experiencias
+     * → inicio
+     *
+     * /experiencias#cata
+     * → experiencia 1
+     *
+     * /experiencias#prepara
+     * → experiencia 2
+     */
 
     useEffect(() => {
 
@@ -246,8 +290,13 @@ function Experiences() {
 
 
             window.scrollTo({
-                top: elementPosition - navbarHeight,
+
+                top:
+                    elementPosition -
+                    navbarHeight,
+
                 behavior: "instant"
+
             });
 
         };
@@ -261,358 +310,308 @@ function Experiences() {
 
         });
 
-    }, [location.pathname, location.hash]);
+    }, [
+        location.pathname,
+        location.hash
+    ]);
 
 
     return (
+        <>
 
-        <main className={styles.page}>
-
-
-            <header className={styles.header}>
-
-                <h1 className={styles.title}>
-                    {text.title}
-                </h1>
+            <main className={styles.page}>
 
 
-                <p className={styles.intro}>
-                    {text.intro}
-                </p>
+                <header className={styles.header}>
 
-            </header>
-
-
-            <div className={styles.experiences}>
+                    <h1 className={styles.title}>
+                        {text.title}
+                    </h1>
 
 
-                {experiences.map(
-                    (experience, index) => (
+                    <p className={styles.intro}>
+                        {text.intro}
+                    </p>
 
-                        <section
-                            key={experience.id}
-                            id={experience.slug}
-                            className={styles.experience}
-                        >
+                </header>
 
 
-                            <div
-                                className={
-                                    styles.experienceHeader
-                                }
+                <div className={styles.experiences}>
+
+
+                    {experiences.map(
+                        (experience, index) => (
+
+                            <section
+                                key={experience.id}
+                                id={experience.slug}
+                                className={styles.experience}
                             >
-
-                                <span
-                                    className={
-                                        styles.number
-                                    }
-                                >
-                                    {String(index + 1).padStart(
-                                        2,
-                                        "0"
-                                    )}
-                                </span>
-
-
-                                <span
-                                    className={
-                                        styles.experienceLabel
-                                    }
-                                >
-                                    {text.experience}
-                                </span>
-
-                            </div>
-
-
-                            <div className={styles.card}>
 
 
                                 <div
                                     className={
-                                        styles.imageWrapper
+                                        styles.experienceHeader
                                     }
                                 >
 
-                                    <img
-                                        src={
-                                            experience.image
-                                        }
-                                        alt={
-                                            experience.title[
-                                            language
-                                            ]
-                                        }
+                                    <span
                                         className={
-                                            styles.image
-                                        }
-                                    />
-
-
-                                    <div
-                                        className={
-                                            styles.imageBadge
+                                            styles.number
                                         }
                                     >
-                                        <FaCoffee />
-                                    </div>
+
+                                        {String(index + 1).padStart(
+                                            2,
+                                            "0"
+                                        )}
+
+                                    </span>
+
+
+                                    <span
+                                        className={
+                                            styles.experienceLabel
+                                        }
+                                    >
+
+                                        {text.experience}{" "}
+
+                                        {String(index + 1).padStart(
+                                            2,
+                                            "0"
+                                        )}
+
+                                    </span>
 
                                 </div>
 
 
-                                <div
-                                    className={
-                                        styles.content
-                                    }
-                                >
-
-
-                                    <h2
-                                        className={
-                                            styles.cardTitle
-                                        }
-                                    >
-                                        {
-                                            experience.title[
-                                            language
-                                            ]
-                                        }
-                                    </h2>
+                                <div className={styles.card}>
 
 
                                     <div
                                         className={
-                                            styles.meta
+                                            styles.imageWrapper
                                         }
                                     >
 
-                                        <div
-                                            className={
-                                                styles.metaItem
+                                        <img
+                                            src={
+                                                experience.image
                                             }
-                                        >
-
-                                            <FaClock />
-
-                                            <span>
-                                                {
-                                                    experience
-                                                        .duration[
-                                                    language
-                                                    ]
-                                                }
-                                            </span>
-
-                                        </div>
+                                            alt={
+                                                experience.title[
+                                                language
+                                                ]
+                                            }
+                                            className={
+                                                styles.image
+                                            }
+                                        />
 
 
                                         <div
                                             className={
-                                                styles.metaItem
+                                                styles.imageBadge
                                             }
                                         >
-
-                                            <FaUsers />
-
-                                            <span>
-                                                {
-                                                    text.smallGroups
-                                                }
-                                            </span>
-
+                                            <FaCoffee />
                                         </div>
 
                                     </div>
 
 
-                                    <p
+                                    <div
                                         className={
-                                            styles.description
+                                            styles.content
                                         }
                                     >
-                                        {
-                                            experience
-                                                .description[
-                                            language
-                                            ]
-                                        }
-                                    </p>
 
 
-                                    {/* MODALIDADES — SOLO EXPERIENCIA 03 */}
-
-                                    {experience.modalities && (
-                                        <div
+                                        <h2
                                             className={
-                                                styles.modalities
+                                                styles.cardTitle
                                             }
                                         >
 
-                                            {experience.modalities[
+                                            {
+                                                experience.title[
                                                 language
-                                            ].map(
-                                                (modality, modalityIndex) => (
+                                                ]
+                                            }
 
-                                                    <div
-                                                        key={
-                                                            modalityIndex
-                                                        }
-                                                        className={
-                                                            styles.modality
-                                                        }
-                                                    >
-
-                                                        <h3
-                                                            className={
-                                                                styles.modalityTitle
-                                                            }
-                                                        >
-                                                            {
-                                                                modality.title
-                                                            }
-                                                        </h3>
+                                        </h2>
 
 
-                                                        <p
-                                                            className={
-                                                                styles.modalitySubtitle
-                                                            }
-                                                        >
-                                                            {
-                                                                modality.subtitle
-                                                            }
-                                                        </p>
+                                        <div
+                                            className={
+                                                styles.meta
+                                            }
+                                        >
 
 
-                                                        <p
-                                                            className={
-                                                                styles.modalityDescription
-                                                            }
-                                                        >
-                                                            {
-                                                                modality.description
-                                                            }
-                                                        </p>
+                                            <div
+                                                className={
+                                                    styles.metaItem
+                                                }
+                                            >
+
+                                                <FaClock />
+
+                                                <span>
+
+                                                    {
+                                                        experience
+                                                            .duration[
+                                                        language
+                                                        ]
+                                                    }
+
+                                                </span>
+
+                                            </div>
 
 
-                                                        <p
-                                                            className={
-                                                                styles.modalityIdeal
-                                                            }
-                                                        >
-                                                            <strong>
-                                                                {language === "es"
-                                                                    ? "Ideal para: "
-                                                                    : "Ideal for: "}
-                                                            </strong>
+                                            <div
+                                                className={
+                                                    styles.metaItem
+                                                }
+                                            >
 
-                                                            {
-                                                                modality.idealFor
-                                                            }
-                                                        </p>
+                                                <FaUsers />
 
-                                                    </div>
+                                                <span>
+                                                    {
+                                                        text.smallGroups
+                                                    }
+                                                </span>
 
-                                                )
-                                            )}
+                                            </div>
+
 
                                         </div>
-                                    )}
 
 
-                                    <div
-                                        className={
-                                            styles.includes
-                                        }
-                                    >
-
-                                        <h3>
-                                            {text.includes}
-                                        </h3>
-
-
-                                        <ul>
+                                        <p
+                                            className={
+                                                styles.description
+                                            }
+                                        >
 
                                             {
                                                 experience
-                                                    .includes[
-                                                    language
+                                                    .description[
+                                                language
                                                 ]
-                                                    .map(
-                                                        (
-                                                            item
-                                                        ) => (
-
-                                                            <li
-                                                                key={
-                                                                    item
-                                                                }
-                                                            >
-
-                                                                <FaCheck />
-
-                                                                <span>
-                                                                    {
-                                                                        item
-                                                                    }
-                                                                </span>
-
-                                                            </li>
-
-                                                        )
-                                                    )
                                             }
 
-                                        </ul>
-
-                                    </div>
+                                        </p>
 
 
-                                    <div
-                                        className={
-                                            styles.actions
-                                        }
-                                    >
-
-                                        <a
-                                            href="https://wa.me/573177987723?text=Hola,%20quiero%20reservar%20una%20experiencia%20de%20Arca%20Coffee."
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <div
+                                            className={
+                                                styles.includes
+                                            }
                                         >
 
-                                            <Button variant="primary">
+                                            <h3>
+                                                {text.includes}
+                                            </h3>
 
-                                                <FaWhatsapp />
 
-                                                {text.reserve}
+                                            <ul>
 
-                                            </Button>
+                                                {
+                                                    experience
+                                                        .includes[
+                                                        language
+                                                    ]
+                                                        .map(
+                                                            (
+                                                                item
+                                                            ) => (
 
-                                        </a>
+                                                                <li
+                                                                    key={
+                                                                        item
+                                                                    }
+                                                                >
+
+                                                                    <FaCheck />
+
+                                                                    <span>
+                                                                        {
+                                                                            item
+                                                                        }
+                                                                    </span>
+
+                                                                </li>
+
+                                                            )
+                                                        )
+                                                }
+
+                                            </ul>
+
+                                        </div>
+
+
+                                        <div
+                                            className={
+                                                styles.actions
+                                            }
+                                        >
+
+                                            <a
+                                                href="https://wa.me/573177987723?text=Hola,%20quiero%20reservar%20una%20experiencia%20de%20Arca%20Coffee."
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+
+                                                <Button variant="primary">
+
+                                                    <FaWhatsapp />
+
+                                                    {text.reserve}
+
+                                                </Button>
+
+                                            </a>
+
+                                        </div>
+
 
                                     </div>
+
 
                                 </div>
 
-                            </div>
+
+                                <ExperienceGallery
+                                    experience={experience}
+                                    language={language}
+                                    galleryTitle={text.gallery}
+                                />
 
 
-                            <ExperienceGallery
-                                experience={experience}
-                                language={language}
-                                galleryTitle={text.gallery}
-                            />
+                            </section>
 
-                        </section>
+                        )
+                    )}
 
-                    )
-                )}
 
-            </div>
+                </div>
 
-        </main>
 
+            </main>
+
+
+            <Footer />
+
+        </>
     );
+
 }
 
 

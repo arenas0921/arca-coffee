@@ -1,7 +1,7 @@
 import syphon from "../assets/images/metodos/syphon.jpg";
 import aeropress from "../assets/images/metodos/aeropress.jpg";
-import chemex from "../assets/images/metodos/chemex.jpg";
-import v60 from "../assets/images/metodos/v60.jpg";
+import chemex from "../assets/images/metodos/chemex.JPG";
+import v60 from "../assets/images/metodos/v60.JPG";
 
 const metodosData = [
 {

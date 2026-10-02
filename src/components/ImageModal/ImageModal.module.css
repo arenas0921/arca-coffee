@@ -813,4 +813,95 @@
         font-size: 1.8rem;
     }
 
+
+
+}
+
+/* =========================================
+   AJUSTE EXCLUSIVO: GALERÍA MÉTODOS
+   Distribución aproximada 70 % imagen / 30 % texto.
+========================================= */
+.methodsVariant.modalWithDescription {
+    width: min(94vw, 1200px);
+    max-width: 1200px;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+    column-gap: 2rem;
+}
+
+.methodsVariant.modalWithDescription .imageWrapper {
+    width: 100%;
+    min-width: 0;
+}
+
+.methodsVariant.modalWithDescription .imageContainer {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+}
+
+.methodsVariant.modalWithDescription .image {
+    display: block;
+    width: 100%;
+    height: 72vh;
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+}
+
+
+.methodsVariant.modalWithDescription .title {
+    align-self: center;
+}
+
+.methodsVariant.modalWithDescription .description {
+    align-self: start;
+    margin-top: 2rem;
+    transform: translateY(-5rem);
+}
+
+@media (max-width: 768px) {
+    .methodsVariant.modalWithDescription {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 1rem;
+        overflow-y: auto;
+    }
+
+    .methodsVariant.modalWithDescription .imageWrapper {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .methodsVariant.modalWithDescription .imageContainer {
+        display: flex;
+        width: 100%;
+        max-width: 88vw;
+        min-width: 0;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .methodsVariant.modalWithDescription .image {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 88vw;
+        max-height: 45vh;
+        object-fit: contain;
+    }
+
+    .methodsVariant.modalWithDescription .title {
+        align-self: center;
+    }
+
+    .methodsVariant.modalWithDescription .description {
+        align-self: stretch;
+        margin-top: 0;
+        transform: none;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 1rem;
+        text-align: left;
+    }
 }

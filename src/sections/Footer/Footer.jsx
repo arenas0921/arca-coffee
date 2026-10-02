@@ -24,12 +24,15 @@ function Footer() {
                         <FaInstagram />
                     </a>
 
-                    <span
+                    <a
+                        href="https://www.facebook.com/share/1CJZqB6Xap/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={styles.socialButton}
                         aria-label="Facebook"
                     >
                         <FaFacebookF />
-                    </span>
+                    </a>
 
                     <span
                         className={styles.socialButton}
@@ -42,12 +45,21 @@ function Footer() {
 
                 <div className={styles.divider} />
 
-                <span
+                <a
+                    href="https://wa.me/573222190438?text=Hola%2C%20quiero%20info%20sobre%20Arca%20Coffee"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`${styles.socialButton} ${styles.whatsapp}`}
-                    aria-label="WhatsApp"
+                    aria-label="Contactar Arca Coffee por WhatsApp"
+
                 >
+
+                    
                     <FaWhatsapp />
-                </span>
+                
+
+                </a>
+
 
                 <p className={styles.copyright}>
                     © 2026 Arca Coffee

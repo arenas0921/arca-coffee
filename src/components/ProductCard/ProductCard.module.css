@@ -33,12 +33,10 @@
 
 .content {
     order: 1;
-
-    height: 190px;
-    min-height: 190px;
-
-    padding: 28px 32px 26px;
-
+    height: 220px;
+    min-height: 220px;
+    box-sizing: border-box;
+    padding: 24px 32px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,7 +83,7 @@
 
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     overflow: hidden;
 }
 

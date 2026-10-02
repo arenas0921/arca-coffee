@@ -1,9 +1,9 @@
 import p1 from "../assets/images/origenes/11.jpg";
 import p2 from "../assets/images/products/espresso1.jpg";
 import p3 from "../assets/images/products/p3.jpg";
-import p4 from "../assets/images/products/p4.jpg";
-import p10 from "../assets/images/products/p10.jpg";
-import p5 from "../assets/images/products/arn.jpg";
+import p4 from "../assets/images/autor/inicio.jpeg";
+import p10 from "../assets/images/cocteles/camu_camu.jpg";
+import p5 from "../assets/images/metodos/syphon.jpg";
 
 const productsData = [
     {
@@ -68,8 +68,8 @@ const productsData = [
         },
 
         subtitle: {
-            es: "Estas recetas no existen en ningún otro lado. Nacieron en esta barra.",
-            en: "These recipes exist nowhere else. They were born behind this bar.",
+            es: "Sabores que nacen de la creatividad, el café y la biodiversidad amazónica.",
+            en: "Flavors born from creativity, coffee, and Amazonian biodiversity.",
         },
 
         image: p4,

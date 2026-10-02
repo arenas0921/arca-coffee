@@ -2,7 +2,7 @@ import p1 from "../assets/images/origenes/11.jpg";
 import p2 from "../assets/images/products/espresso1.jpg";
 import p3 from "../assets/images/products/p3.jpg";
 import p4 from "../assets/images/autor/inicio.jpeg";
-import p10 from "../assets/images/cocteles/camu_camu.jpg";
+import p10 from "../assets/images/cocteles/camu_camu.JPG";
 import p5 from "../assets/images/metodos/syphon.jpg";
 
 const productsData = [

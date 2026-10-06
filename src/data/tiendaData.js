@@ -1,14 +1,18 @@
 import alegria from "../assets/images/tienda/alegria.png";
 import alegriaEtiqueta from "../assets/images/tienda/alegria1.png";
+import alegria2 from "../assets/images/tienda/alegria2.png";
 
 import andaki from "../assets/images/tienda/andaki.png";
 import andakiEtiqueta from "../assets/images/tienda/andaki1.png";
+import andaki2 from "../assets/images/tienda/andaki2.png";
 
 import rosa from "../assets/images/tienda/rosa.png";
 import rosaEtiqueta from "../assets/images/tienda/rosa1.png";
+import rosa2 from "../assets/images/tienda/rosa2.png";
 
 import jazmin from "../assets/images/tienda/jazmin.png";
 import jazminEtiqueta from "../assets/images/tienda/jazmin1.png";
+import jazmin2 from "../assets/images/tienda/jazmin2.png";
 
 
 const tiendaData = [
@@ -30,7 +34,9 @@ const tiendaData = [
 
         image: alegria,
 
-        labelImage: alegriaEtiqueta,
+        labelImage: alegria2,
+
+        storyImage: alegria2,
 
         prices: {
             500: 68000,
@@ -100,7 +106,9 @@ const tiendaData = [
 
         image: andaki,
 
-        labelImage: andakiEtiqueta,
+        labelImage: andaki2,
+
+        storyImage: andaki2,
 
         prices: {
             500: 50000,
@@ -168,7 +176,9 @@ const tiendaData = [
 
         image: rosa,
 
-        labelImage: rosaEtiqueta,
+        labelImage: rosa2,
+
+        storyImage: rosa2,
 
         prices: {
             500: 68000,
@@ -236,7 +246,9 @@ const tiendaData = [
 
         image: jazmin,
 
-        labelImage: jazminEtiqueta,
+        labelImage: jazmin2,
+
+        storyImage: jazmin2,
 
         prices: {
             500: 68000,

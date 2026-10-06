@@ -3,7 +3,9 @@ import o3 from "../assets/images/origenes/14.jpg";
 import o4 from "../assets/images/origenes/16.jpg";
 import o5 from "../assets/images/origenes/17.jpg";
 import o6 from "../assets/images/origenes/18.jpg";
-
+import o7 from "../assets/images/origenes/origenes13.jpg";
+import o8 from "../assets/images/origenes/origenes12.jpeg";
+import o9 from "../assets/images/origenes/origenes11.jpeg";
 
 const origenesData = [
     {
@@ -27,6 +29,19 @@ At ARCA COFFEE, we explore this diversity through different Colombian origins, d
         },
     },
 
+    {
+        image: o7,
+        title: "Orígenes",
+    },
+
+    {
+        image: o8,
+        title: "Orígenes",
+    },
+    {
+        image: o9,
+        title: "Orígenes",
+    },
     {
         image: o3,
         title: "Orígenes",

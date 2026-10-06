@@ -193,8 +193,8 @@ function Tienda() {
             image: product.labelImage,
             title:
                 language === "es"
-                    ? `Etiqueta ${product.title[language]}`
-                    : `${product.title[language]} label`,
+                    ? `Historia ${product.title[language]}`
+                    : `${product.title[language]} Story`,
         },
 
     ];
@@ -849,7 +849,7 @@ Total: ${formattedTotal}`;
             <ImageModal
                 isOpen={isImageModalOpen}
                 slides={productSlides}
-                initialIndex={initialModalIndex}
+                currentIndex={initialModalIndex}
                 onClose={() =>
                     setIsImageModalOpen(false)
                 }

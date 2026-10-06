@@ -13,7 +13,6 @@ import Footer from "../../sections/Footer";
 
 import { FaWhatsapp } from "react-icons/fa";
 
-
 function Tienda() {
 
     const { slug } = useParams();
@@ -22,11 +21,9 @@ function Tienda() {
 
     const { language } = useLanguage();
 
-
     const product = tiendaData.find(
         (item) => item.slug === slug
     );
-
 
     const [selectedSize, setSelectedSize] = useState("500");
 
@@ -128,10 +125,8 @@ function Tienda() {
     const selectedPrice =
         product.prices[selectedSize];
 
-
     const totalPrice =
         selectedPrice * quantity;
-
 
     const formatPrice = (price) =>
         new Intl.NumberFormat(
@@ -145,10 +140,8 @@ function Tienda() {
             }
         ).format(price);
 
-
     const formattedPrice =
         formatPrice(selectedPrice);
-
 
     const formattedTotal =
         formatPrice(totalPrice);
@@ -248,10 +241,8 @@ function Tienda() {
         const productName =
             product.title[language];
 
-
         const size =
             sizeLabels[selectedSize][language];
-
 
         const message =
             language === "es"
@@ -274,13 +265,10 @@ Quantity: ${quantity}
 Unit price: ${formattedPrice}
 Total: ${formattedTotal}`;
 
-
         const whatsappUrl =
             `https://wa.me/573222190438?text=${encodeURIComponent(message)}`;
 
-
         setIsOrderModalOpen(false);
-
 
         window.open(
             whatsappUrl,
@@ -307,13 +295,11 @@ Total: ${formattedTotal}`;
 
             <main className={styles.tienda}>
 
-
                 {/* =========================
                     FICHA DEL PRODUCTO
                    ========================= */}
 
                 <div className={styles.container}>
-
 
                     {/* =========================
                         GALERÍA
@@ -321,9 +307,7 @@ Total: ${formattedTotal}`;
 
                     <section className={styles.gallery}>
 
-
                         <div className={styles.thumbnails}>
-
 
                             {/* IMAGEN DEL PRODUCTO */}
 

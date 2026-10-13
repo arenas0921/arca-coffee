@@ -563,11 +563,15 @@ function Experiences() {
                                             }
                                         >
 
+
                                             <a
-                                                href="https://wa.me/573177987723?text=Hola,%20quiero%20reservar%20una%20experiencia%20de%20Arca%20Coffee."
+                                                href={`https://wa.me/${experience.whatsappNumber}?text=${encodeURIComponent(
+                                                    experience.whatsappMessage
+                                                )}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
+
 
                                                 <Button variant="primary">
 

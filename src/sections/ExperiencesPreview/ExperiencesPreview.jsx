@@ -382,8 +382,15 @@ function ExperiencesPreview() {
                                             </Link>
 
 
+
                                             <a
-                                                href="https://wa.me/573222190438?text=Hola,%20quiero%20reservar%20una%20experiencia%20de%20Arca%20Coffee."
+                                                href={`https://wa.me/573222190438?text=${encodeURIComponent(
+                                                    experience.id === 1
+                                                        ? "Hola, quiero reservar la experiencia Cata básica de café de Arca Coffee."
+                                                        : experience.id === 2
+                                                            ? "Hola, quiero reservar la experiencia de preparación de espresso de Arca Coffee."
+                                                            : "Hola, quiero reservar la experiencia de tres cafés, tres formas de descubrirlos de Arca Coffee."
+                                                )}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className={
@@ -402,6 +409,7 @@ function ExperiencesPreview() {
                                             >
                                                 <FaWhatsapp />
                                             </a>
+
 
                                         </div>
 

@@ -22,6 +22,9 @@ const experiences = [
         id: 1,
         slug: "cata",
 
+        whatsappNumber: "573222190438",
+        whatsappMessage:
+            "Hola, quiero reservar la experiencia Cata básica de café de Arca Coffee.",
         title: {
             es: "Cata básica de café",
             en: "Basic Coffee Tasting"
@@ -74,6 +77,10 @@ const experiences = [
         id: 2,
         slug: "prepara",
 
+        whatsappNumber: "573222190438",
+        whatsappMessage:
+            "Hola, quiero reservar la experiencia de preparación de espresso de Arca Coffee.",
+
         title: {
             es: "Tu espresso, preparado por ti en una máquina profesional",
             en: "Your espresso, prepared by you on a professional machine."
@@ -122,6 +129,10 @@ const experiences = [
     {
         id: 3,
         slug: "metodos",
+
+        whatsappNumber: "573222190438",
+        whatsappMessage:
+            "Hola, quiero reservar la experiencia de tres cafés, tres formas de descubrirlos de Arca Coffee.",
 
         title: {
             es: "Tres cafés, tres formas de descubrirlos",
